@@ -1,0 +1,2 @@
+deb https://deb.nodesource.com/node_11.x bullseye main
+ddeb-src https://deb.nodesource.com/node_11.x bullseye main

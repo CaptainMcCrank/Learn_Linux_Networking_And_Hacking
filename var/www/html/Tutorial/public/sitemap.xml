@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://10.10.10.1/Tutorial/defacing/</loc>
+    <lastmod>2023-01-02T13:06:22-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/access/</loc>
+    <lastmod>2023-01-01T18:48:02-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/scanning/</loc>
+    <lastmod>2023-01-01T18:32:51-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/categories/</loc>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/</loc>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/tags/</loc>
+  </url>
+</urlset>

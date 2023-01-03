@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Challenge Site</title>
+    <link>http://10.10.10.1/Tutorial/</link>
+    <description>Recent content on Challenge Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="http://10.10.10.1/Tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Defacing</title>
+      <link>http://10.10.10.1/Tutorial/defacing/</link>
+      <pubDate>Mon, 02 Jan 2023 13:06:22 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/defacing/</guid>
+      <description>Here are the commands you can use to change directory to /var/www/html/, make a backup of the index.html file, and modify the web page to update the h3 tag:
+To change directory to /var/www/html/, use the cd command: cd /var/www/html/
+To check the filesystem permissions of /var/www/html/index.html on a Linux system, you can use the ls command with the -l option, which displays detailed information about the file, including its permissions.</description>
+    </item>
+    
+    <item>
+      <title>Access</title>
+      <link>http://10.10.10.1/Tutorial/access/</link>
+      <pubDate>Sun, 01 Jan 2023 18:48:02 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/access/</guid>
+      <description>Gaining Access Prerequistes You should read this section if you have identified the answers to the following questions from section 1:
+What is the ip address of the device you are using to connect to the wifi network? What is the default gateway for the wifi interface of the device when it’s attached to the wifi network? What service numbers &amp;amp; corresponding protocols did you discovered on the target system? Your Objectives: Use a tool to connect to the ssh port of the raspberry pi&amp;rsquo;s ip address.</description>
+    </item>
+    
+    <item>
+      <title>Scanning</title>
+      <link>http://10.10.10.1/Tutorial/scanning/</link>
+      <pubDate>Sun, 01 Jan 2023 18:32:51 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/scanning/</guid>
+      <description>Scanning The first goal of many hackers is to identify the entry points into a system. This can be achieved using network reconnisance tools to &amp;ldquo;scan&amp;rdquo; a host.
+Scanning can be performed with an iphone app called Net Analyer it also can be performed by installing and running an app called &amp;rsquo;nmap&amp;rsquo; on a laptop.
+You should attempt to scan the ip address of the hotspot. Can you figure out what the ip address is of the Hotspot?</description>
+    </item>
+    
+  </channel>
+</rss>

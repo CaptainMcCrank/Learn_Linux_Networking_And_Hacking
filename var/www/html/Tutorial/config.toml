@@ -1,0 +1,3 @@
+baseURL = 'http://10.10.10.1/Tutorial'
+languageCode = 'en-us'
+title = 'Challenge Site'

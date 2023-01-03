@@ -1,0 +1,67 @@
+body{
+    font-family:sans-serif;
+    background: #cfecf1a3;
+  }
+  
+  .day{
+    position:relative;
+    
+    font-size:1.2rem;
+    font-weight:600;
+    
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    
+    width:200px;
+    height:200px;
+    justify-content: center;
+    
+    margin:20vh auto;
+    
+    h3{ 
+      display:block;
+      text-align:center;
+      width:200px;
+      flex:0 auto;
+    }
+    
+    .text{
+      position:absolute;
+      font-weight:300;
+      top:-25%;
+      left:-25%;
+      width:150%;
+      height:150%;
+      font-size:2rem;
+      
+      fill:#b504db;
+      
+      animation-name: spin;
+      animation-duration: 40s;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+    }
+  }
+  
+  @-ms-keyframes spin {
+      from { -ms-transform: rotate(0deg); }
+      to { -ms-transform: rotate(360deg); }
+  }
+  @-moz-keyframes spin {
+      from { -moz-transform: rotate(0deg); }
+      to { -moz-transform: rotate(360deg); }
+  }
+  @-webkit-keyframes spin {
+      from { -webkit-transform: rotate(0deg); }
+      to { -webkit-transform: rotate(360deg); }
+  }
+  @keyframes spin {
+      from {
+          transform:rotate(0deg);
+      }
+      to {
+          transform:rotate(360deg);
+      }
+  }

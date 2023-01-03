@@ -1,0 +1,881 @@
+---
+# Note: Device needs to be rebooted twice after the install before the ices service properly launches.
+
+ - hosts: AnsibleHotspotTargets
+   #connection: local
+   become: yes
+   become_user: root
+   vars:
+     py_version: 3.8.0
+     threads: 4
+     temp_folder: /tmp
+     # ***BE SURE TO INCREMENT THE FOLLOWING 3 VARIABLES IF YOU ARE UPGRADING THE HOTSPOT
+     root_playbook_dir: /home/pi/Playbooks/Learn_Linux_Networking_And_Hacking
+     os_info_path: /etc/os-release
+     int_count: "{{ ansible_interfaces | count }}"
+     docker_host: "{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }}"
+     new_password: "Passw@rd"
+     version:
+       Build: LEARN_LINUX_NETWORKING_AND_HACKING
+       BuildDate: "01_02_22"
+       Ver: 0.1
+       Author: p@mccannabanana.com
+
+
+   tasks:
+   - name: If an environment variable named "DOCKER_HOST" is set on the playbook controller, then print the value.
+     ansible.builtin.debug:
+       msg: "'{{ docker_host }}' is the DOCKER_HOST environment variable."
+     when: "'{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }} is defined'"
+
+   - name: get content of remote file
+     slurp:
+       src: "{{os_info_path}}"
+     register: remote_content_encoded
+
+   - name: decode remote content
+     set_fact:
+       remote_os_info: "{{remote_content_encoded.content | b64decode}}"
+
+   - debug:
+       msg: "content of remote file {{os_info_path}}: {{remote_os_info}}"
+
+   - name: deactivate wlan1 if its on
+     command: ip link set wlan1 down
+     when: int_count != '3'
+     tags: AnsibleHousekeeping 
+
+   - name: wipe /var/cache/apt/* 
+     file:
+       path: /var/cache/apt/
+     tags: AnsibleHousekeeping 
+  
+   - name: disable powersave mode on wlan0 (Reduces possibility of intermittent connectivity loss due to powersaving)
+     command: iwconfig wlan0 power off
+     tags: AnsibleHousekeeping 
+
+   - name: Synchronization of files for apt client (configures target device to use builderhotspot's proxies.)
+     ansible.builtin.copy: 
+       src: "{{ root_playbook_dir }}/etc/apt"
+       dest: /tmp/
+
+#See https://forums.raspberrypi.com/viewtopic.php?t=298069 for context on the following commands: 
+
+   - name: Overwrite /etc/apt/sources.list to use builderhotspot's general apt-related proxies.
+     command: cp /tmp/apt/sources.list.pre /etc/apt/sources.list
+
+   - name: Overwrite /etc/apt/sources.list.d/raspi.list to use builderhotspot's raspbian-related proxies.
+     command: cp /tmp/apt/sources.list.d/raspi.list.pre /etc/apt/sources.list.d/raspi.list
+
+   - name: Modify the /etc/apt/sources.list.pre apt source if the playbook host has DOCKER_HOST environmental variable
+     ansible.builtin.replace:
+       path: /etc/apt/sources.list
+       regexp: '(?:10.6.6.1)'
+       replace: "{{ docker_host }}"
+     when: "'{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }} is defined'"
+
+   - name: Run the equivilent of apt-get update
+     apt:
+       update_cache: yes 
+
+   - name: Update all packages (install the newest versions of all packages currently installed on the system from the sources enumerated in /etc/apt/sources.list on the target system)
+     apt:
+       upgrade: dist
+     tags: AnsibleHousekeeping 
+
+   - name: upgrade pip (PIP3 is required for modern ansible)
+     command: python -m pip install --upgrade pip
+     tags: hotspot
+
+   - name: "install python runtime&build dependencies.  (Ensures we have Python {{py_version}}, which is needed for long term ansible support)."
+     apt:
+       name: ['build-essential', 'tk-dev', 'libncurses5-dev', 'libncursesw5-dev', 'libreadline6-dev','libdb5.3-dev', 'libgdbm-dev', 'libsqlite3-dev', 'libbz2-dev', 'libexpat1-dev', 'liblzma-dev', 'zlib1g-dev', 'libffi-dev']
+       #name: ['build-essential', 'tk-dev', 'libncurses5-dev', 'libncursesw5-dev', 'libreadline6-dev','libdb5.3-dev', 'libgdbm-dev', 'libsqlite3-dev', 'libssl-dev', 'libbz2-dev', 'libexpat1-dev', 'liblzma-dev', 'zlib1g-dev', 'libffi-dev']
+
+   - name: "Download python{{py_version}}"
+     get_url:
+       url="https://www.python.org/ftp/python/{{py_version}}/Python-{{py_version}}.tar.xz"
+       dest="/tmp/Python-{{py_version}}.tar.xz"
+
+   - name: "Unarchive downloaded python"
+     unarchive:
+       src="/tmp/Python-{{py_version}}.tar.xz"
+       dest="/tmp/"
+       copy=no
+       creates="/tmp/Python-{{py_version}}"
+
+   - name: "configure python{{py_version}} build"
+     command: ./configure
+     args:
+       chdir: "/tmp/Python-{{py_version}}"
+       creates: "/tmp/Python-{{py_version}}/Makefile"
+
+   - name: "build python"
+     # not using make module to be able to use -j and creates option to fully skip step
+     command: make -j{{threads}}
+     args:
+       chdir: "/tmp/Python-{{py_version}}"
+       creates: "/tmp/Python-{{py_version}}/python"
+
+   - name: "Finally, install the python build we pulled & compiled!"
+     make:
+       chdir: "/tmp/Python-{{py_version}}"
+       target: altinstall
+
+   - name: Remove Wolfram-engine
+     apt:
+       name: wolfram-engine
+       state: absent
+       purge: yes
+       autoremove: yes
+     tags: cleanup
+
+   - name: Remove scratch
+     apt:
+       name: scratch
+       state: absent
+       purge: yes
+       autoremove: yes
+     tags: cleanup
+
+   - name: Remove minecraft-pi
+     apt:
+       name: minecraft-pi
+       state: absent
+       purge: yes
+       autoremove: yes
+     tags: cleanup
+
+   - name: Create desktop background file
+     ansible.builtin.copy:
+       src: "{{ root_playbook_dir }}/pi/happyzzz.jpeg"
+       dest: /home/pi/Pictures/Desktop.JPG
+       owner: pi
+       group: pi
+       mode: 0644
+     tags: 
+     - LearnLinuxNetworkingHacking
+     - os_config_files
+
+   - name: set the new desktop background 
+     lineinfile:
+             # changed location in rasbpian buster.  Old location:
+             # path: /home/pi/.config/pcmanfm/LXDE-pi/desktop-items-0.conf
+       path: /etc/xdg/pcmanfm/LXDE-pi/desktop-items-0.conf
+       regexp: '(wallpaper=.+)'
+       line: 'wallpaper=/home/pi/Pictures/Desktop.JPG'
+     tags: 
+     - os_config_files
+     - LearnLinuxNetworkingHacking
+
+   - name: Create /home/pi/.config directory
+     file: path=/home/pi/.config state=directory mode=0755 owner=pi group=pi
+     tags: os_config_files
+
+   - name: Copy device registration scripts 
+     synchronize:
+       src: "{{ root_playbook_dir }}/bin/register.sh"
+       dest: /bin/.
+     tags: DeviceRegistration
+
+   - name: Copy www files over to target
+     synchronize:
+       src: "{{ root_playbook_dir }}/var/www/"
+       dest: /var/www/
+       recursive: yes
+     tags: 
+       - LearnLinuxNetworkingHacking1
+    
+   - name: Create /var/www/html directory
+     file: path=/var/www/html state=directory mode=0755 owner=www-data group=www-data
+     tags: 
+       - LearnLinuxNetworkingHacking
+        
+   - name: chmoding /var/www/html/
+     file:
+       path: /var/www/html/
+       owner: www-data
+       group: www-data
+       mode: 0755
+       recurse: yes
+     tags: web
+
+   - name: Install gparted
+     apt:
+       name: gparted
+       state: present
+       update_cache: true
+     tags: AnsibleHousekeeping
+
+   - name: Install Vim
+     apt:
+       name: vim
+       state: present
+       update_cache: true
+     tags: os_config_files
+
+   - name: Install lighttpd 
+     apt:
+       name: lighttpd
+       state: present
+       update_cache: true
+     tags: 
+     - streamer
+     - KarehaDiscussionBoard
+
+   - name: Install git 
+     apt:
+       name: git
+       state: present
+       update_cache: true
+     tags: AnsibleHousekeeping
+
+   - name: Install lightdm desktop manager
+     apt:
+       name: lightdm
+       state: present
+       update_cache: true
+     tags: os_config_files
+
+   - name: Install ncdu
+     apt:
+       name: ncdu
+       state: present
+       update_cache: true
+     tags: os_config_files
+
+   - name: Install lshw
+     apt:
+       name: lshw
+       state: present
+       update_cache: true
+     tags: os_config_files
+
+   - name: Create /usr/local/etc directory
+     file: path=/usr/local/etc state=directory mode=0755 owner=root group=root
+     tags: os_config_files
+
+   - name: Copy /etc/interfaces file #Likely needs updates if I change interfaces
+     copy:
+       src: "{{ root_playbook_dir }}/etc/interfaces"
+       dest: /etc/interfaces
+       owner: root
+       group: root
+       mode: 0644
+     tags: 
+     - os_config_files
+     - CaptivePortal
+     - Hotspot
+
+   - name: Copy 72-wlan-geo-dependent.rules script that forces the onboard interface to be wlan0.  This is done because interface names are by default dynamically allocated, which can disrupt attempts to configure correct firewall rules & routing
+     copy:
+       src: "{{ root_playbook_dir }}/etc/udev/rules.d/72-wlan-geo-dependent.rules"
+       dest: /etc/udev/rules.d/72-wlan-geo-dependent.rules
+       owner: root
+       group: root
+       mode: 0644
+     tags: os_config_files
+
+   - name: Copy /etc/wpa_supplicant/wpa_supplicant.conf file
+     copy:
+       src: "{{ root_playbook_dir }}/etc/wpa_supplicant/wpa_supplicant.conf"
+       dest: /etc/wpa_supplicant/wpa_supplicant.conf
+       owner: root
+       group: root
+       mode: 0500
+     tags: os_config_files
+
+   - name: Copy /etc/dhcpcd.conf file #Likely needs updates if I change interfaces
+     copy:
+       src: "{{ root_playbook_dir }}/etc/dhcpcd.conf"
+       dest: /etc/dhcpcd.conf
+       owner: root
+       group: netdev
+       mode: 0664
+     tags: os_config_files
+
+   - name: Copy /etc/host.conf file 
+     copy:
+       src: "{{ root_playbook_dir }}/etc/host.conf"
+       dest: /etc/host.conf
+       owner: root
+       group: root
+       mode: 0644
+     tags: os_config_files
+
+   - name: Copy /etc/hosts file #Likely needs updates if I change interfaces
+     copy:
+       src: "{{ root_playbook_dir }}/etc/hosts"
+       dest: /etc/hosts
+       owner: root
+       group: root
+       mode: 0755
+     tags: os_config_files
+
+   - name: Copy /etc/hostname file #Likely needs updates if I change interfaces
+     copy:
+       src: "{{ root_playbook_dir }}/etc/hostname"
+       dest: /etc/hostname
+       owner: root
+       group: root
+       mode: 0755
+     tags: os_config_files
+
+   - name: add Python3 alias to .bashrc
+     become: yes
+     become_user: pi
+     lineinfile:
+       path: .bashrc
+       line: 'alias python=python3'
+     tags: os_config_files
+
+   - name: source bashrc (I'm suspicious I don't need this step)
+     become: yes
+     become_user: pi
+     shell: . /home/pi/.bashrc && ls
+     tags: os_config_files
+
+   - name: copy the /usr/local/bin/ClearLogs.sh script which clears the logs of the system
+     copy:
+       src: "{{ root_playbook_dir }}/usr/local/bin/ClearLogs.sh"
+       dest: /usr/local/bin/ClearLogs.sh
+       owner: root
+       group: root
+       mode: 0744
+     tags: 
+     - os_config_files
+     - AnsibleHousekeeping
+
+   - name: chmoding /usr/local/bin/ClearLogs.sh
+     file:
+       path: /usr/local/bin/ClearLogs.sh
+       owner: root
+       group: root
+       # when specifying mode using octal numbers, add a leading 0
+       mode: 0755
+     tags: 
+     - os_config_files
+     - AnsibleHousekeeping
+
+   - name: Clear the log files! 
+     command: bash -c "/usr/local/bin/ClearLogs.sh"
+     tags: 
+     - os_config_files
+     - AnsibleHousekeeping
+
+   - name: unmask hostapd
+     command: systemctl unmask hostapd.service
+     tags: hotspot
+
+   - name: set the new desktop background 
+     lineinfile:
+              # changed location in rasbpian buster.  Old location:
+              # path: /home/pi/.config/pcmanfm/LXDE-pi/desktop-items-0.conf
+       path: /etc/xdg/pcmanfm/LXDE-pi/desktop-items-0.conf
+       regexp: '(wallpaper=.+)'
+       line: 'wallpaper=/home/pi/Pictures/Desktop.JPG'
+     tags: os_config_files
+
+   - name: enable lighttpd access logging 
+     command: lighttpd-enable-mod accesslog
+     tags: os_config_files
+
+   - name: Copy /etc/modprobe.d/8192cu.conf file that prevents power saving on wlan0
+     copy:
+       src: "{{ root_playbook_dir }}/etc/modprobe.d/8192cu.conf"
+       dest: /etc/modprobe.d/8192cu.conf
+       owner: root
+       group: root
+       mode: 0644
+     tags: new
+
+   - name: adding existing user pi to groups www-data
+     user:
+       name: pi
+       groups: www-data
+       append: yes
+     tags: 
+     - web
+
+   - name: install dependencies for some things that I don't recall the motivation for
+     apt:
+       name: "{{item}}"
+       state: present
+       update_cache: yes
+     loop:
+         - apt-transport-https
+         - ca-certificates
+         - curl
+         - gnupg-agent
+         - software-properties-common
+     tags: 
+     - DeviceRegistration
+     - UnknownDependencies
+
+   - name: configure /etc/apt/sources.list
+     command: mv /tmp/apt/sources.list.post /etc/apt/sources.list
+     tags: AnsibleHousekeeping 
+
+   - name: configure /etc/apt/sources.list.d/raspi.list
+     command: mv /tmp/apt/sources.list.d/raspi.list.post /etc/apt/sources.list.d/raspi.list
+     tags: AnsibleHousekeeping 
+
+   - name: wget the Filesystem resizer
+     command: wget -O /etc/init.d/resize2fs_once https://raw.githubusercontent.com/RPi-Distro/pi-gen/master/stage2/01-sys-tweaks/files/resize2fs_once
+     tags: AnsibleHousekeeping 
+
+   - name: chmod +x the filesystem resizer
+     file:
+       path: /etc/init.d/resize2fs_once
+       owner: root
+       group: root
+       # when specifying mode using octal numbers, add a leading 0
+       mode: 0755
+     tags: os_config_files
+
+   - name: add quiet init=/usr/lib/raspi-config/init_resize.sh to /boot/cmdline.txt
+     lineinfile:
+       path: /boot/cmdline.txt
+       line: quiet init=/usr/lib/raspi-config/init_resize.sh
+       insertafter: EOF
+     tags: os_config_files
+
+   - name: sudo systemctl enable resize2fs_once
+     command: systemctl enable resize2fs_once
+     tags: os_config_files
+
+
+   - name: Copy the /etc/dhcpcd.conf file which makes sure wlan0 has a static ip
+     copy:
+       src: "{{ root_playbook_dir }}/etc/dhcpcd.conf"
+       dest: /etc/dhcpcd.conf
+       owner: root
+       group: netdev
+       mode: 0664
+     tags: 
+     - os_config_files
+     - streamer
+
+   - name: resolv.conf.head file
+     copy:
+       src: "{{ root_playbook_dir }}/etc/resolv.conf.head"
+       dest: /etc/resolv.conf.head
+       owner: root
+       group: root
+       mode: 0600
+     tags: LearnLinuxNetworkingHacking
+
+   - name: Copy lighttpd configuration files over to target (enables SSL & error page redirects)
+     ansible.posix.synchronize:
+       src: "{{ root_playbook_dir }}/etc/lighttpd/"
+       dest:  /etc/lighttpd/
+       recursive: yes
+     tags: web
+
+   - name: Copy the tutorial pages over 
+     ansible.posix.synchronize: 
+       src: "{{ root_playbook_dir }}/var/www/html/Tutorial"
+       dest: /var/www/html/Tutorial
+       recursive: yes
+     tags: LearnLinuxNetworkHacking
+
+   - name: Copy systemd timers & services files for device registration
+     become_user: pi
+     copy:
+       src: "{{ root_playbook_dir }}/pi/config/systemd"
+       dest: /home/pi/.config/
+       mode: 0700
+       owner: pi
+     tags: 
+     - DeviceRegistration
+
+   - name: enable device registration service so it launches after reboot
+     become_user: pi
+     command: systemctl --user enable register-device.service # no now switch because I don't want to run it
+     tags: DeviceRegistration
+
+   - name: enable device registration timer so it launches after reboot
+     become_user: pi
+     command: systemctl --user enable register-device.timer
+     tags: DeviceRegistration
+
+   - name: Copy /usr/local/etc/ files over to target *currently this is the hotspot version file*
+     ansible.builtin.copy:
+       src: "{{ root_playbook_dir }}/usr/local/etc/device.ver"
+       dest: /boot/device.ver
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Increment /boot/device.ver contents to reflect build version
+     lineinfile:
+       path: /boot/device.ver
+       regexp: '^Ver:.*'
+       line: "Ver: {{ version['Ver'] }}"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Increment /boot/device.ver contents to reflect build Author
+     lineinfile:
+       path: /boot/device.ver
+       regexp: '^Author:.*'
+       line: "Author: {{ version['Author'] }}"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Increment /boot/device.ver contents to reflect build date
+     lineinfile:
+       path: /boot/device.ver
+       regexp: '^BuildDate:.*'
+       line: "BuildDate: {{ version['BuildDate'] }}"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Install dnsmasq
+     apt:
+       name: dnsmasq
+       state: present
+       update_cache: true
+     tags: 
+
+     - Hotspot
+
+   - name: Copy /etc/dnsmasq.conf configuration that is used for DHCP assignment #Likely needs updates if I change interfaces
+     copy:
+       src: "{{ root_playbook_dir }}/etc/dnsmasq.conf"
+       dest: /etc/dnsmasq.conf
+       owner: root
+       group: root
+       mode: 0744
+     tags: os_config_files
+
+
+   - name: enable dnsmasq
+     command: systemctl enable dnsmasq
+     tags: 
+     - Hotspot
+
+
+   - name: Install hostapd
+     apt:
+       name: hostapd
+       state: present
+       update_cache: true
+     tags: hotspot
+
+   - name: Create hostapd Configuration directory
+     file: path=/etc/hostapd/ state=directory mode=0755
+     tags: hotspot
+
+   - name: Copy /etc/hostapd/CaptivePortalStarter.conf configuration that is used to set a forwarding hotspot with no password #Likely needs updates if I change interfaces
+     ansible.builtin.copy:
+       src: "{{ root_playbook_dir }}/etc/hostapd/CaptivePortalStarter.conf"
+       dest: /etc/hostapd/CaptivePortalStarter.conf
+       owner: root
+       group: root
+       mode: 0744
+     tags: hotspot
+
+   - name: Copy /etc/default/hostapd file
+     copy:
+       src: "{{ root_playbook_dir }}/etc/default/hostapd"
+       dest: /etc/default/hostapd
+       owner: root
+       group: root
+       mode: 0755
+     tags: hotspot
+
+   - name: Copy /run/systemd/generator.late file #Likely needs updates if I change interfaces
+     ansible.builtin.copy:
+       src: "{{ root_playbook_dir }}/etc/init.d/hostapd"
+       dest: /etc/init.d/hostapd
+       owner: root
+       group: root
+       mode: 0755
+     tags: hostapd
+
+   - name: unmask hostapd
+     command: systemctl unmask hostapd.service
+     tags: hotspot
+
+   - name: enable hostapd (so it launches afterboot)
+     command: update-rc.d hostapd enable
+     tags: base
+
+
+   - name: Increment /boot/device.ver contents to reflect build Name
+     lineinfile:
+       path: /boot/device.ver
+       insertbefore: </body>
+       line: "Build: {{ version['Build'] }}"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name:  
+     lineinfile:
+       path: /var/www/html/index.html
+       insertbefore: </body>
+       line: "<li>Build Version: {{ version['Ver'] }}</a></li>"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Increment /var/www/html/index.html contents to reflect build Name
+     lineinfile:
+       path: /var/www/html/index.html
+       insertbefore: </body>
+       line: "<li>Build Name: {{ version['Build'] }}</a></li>"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Increment /var/www/html/index.html contents to reflect build Date
+     lineinfile:
+       path: /var/www/html/index.html
+       insertbefore: </body>
+       line: "<li>Build Date: {{ version['BuildDate'] }}</a></li>"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+
+   - name: Because we're near the limit for an 8gb card, we're going to delete unnecessary locale data.
+     file:
+       state: absent
+       path: "/usr/share/locale/{{ item }}"
+     loop: 
+        - ab
+        - ace
+        - ay
+        - ba
+        - bal
+        - bem
+        - bi
+        - ch
+        - ee
+        - iu
+        - kl
+        - ko_KR
+        - la
+        - mo
+        - pap
+        - qu
+        - shn
+        - sr@Latn
+        - szl
+        - ak
+        - bar
+        - chr
+        - es_AR
+        - es_ES
+        - haw
+        - ht
+        - id_ID
+        - ki
+        - kv
+        - na
+        - nah
+        - nv
+        - bo
+        - ce
+        - gl_ES
+        - jam
+        - kw
+        - nb_NO
+        - new
+        - pi
+        - son
+        - sk        
+        - tzm
+        - wae
+        - wal
+        - zh_Hant
+        - az_IR
+        - en_NZ
+        - gn
+        - gv
+        - kok
+        - lo
+        - sd
+        - sw
+        - dv
+        - mhr
+        - mjw
+        - cv
+        - ve
+        - bn_BD
+        - byn
+        - gez
+        - so
+        - tig
+        - ang
+        - csb
+        - ti
+        - cgg
+        - fil
+        - tt@iqtelif
+        - wo
+        - hy_AM
+        - no
+        - de_CH
+        - et_EE
+        - hye
+        - frp
+        - mt
+        - ig
+        - ha
+        - ach
+        - ie
+        - tk
+        - io
+        - am_ET
+        - ff
+        - ku_IQ
+        - ur_PK
+        - yo
+        - kg
+        - tt_RU
+        - lb
+        - mi
+        - kab
+        - zu
+        - ckb
+        - fo
+        - ur
+        - uz@cyrillic
+        - am
+        - rw
+        - li
+        - co
+        - en_AU
+        - mg
+        - tl
+        - tt
+        - ky
+        - uz
+        - nds
+        - sc
+        - yi
+        - ps
+        - sr_RS
+        - nso
+        - sr@ije
+        - sr_RS@latin
+        - ia
+        - ku
+        - lg
+        - br
+        - az
+        - xh
+        - wa
+        - tg
+        - fy
+        - mn
+        - es_MX
+        - ks_IN
+        - gd
+        - si
+        - be@latin
+        - en_CA
+        - en@shaw
+        - my
+        - as_IN
+        - brx
+        - en@quot
+        - hy
+        - en@boldquot
+        - af
+        - ka
+        - an
+        - crh
+        - pt_PT
+        - cy
+        - mk
+        - sq
+        - fa
+        - fur
+        - is
+        - zh_HK
+        - bs
+        - ga
+        - dz
+        - ne
+        - ug
+        - kk
+        - nn
+        - mai
+        - as
+        - ca@valencia
+        - km
+        - ms
+        - sr@latin
+        - ar
+        - eo
+        - hi
+        - oc
+        - or
+        - ast
+        - et
+        - te
+        - th
+        - bn
+        - bn_IN
+        - he
+        - lv
+        - ta
+        - gu
+        - be
+        - kn
+        - pa
+        - lt
+        - ml
+        - mr
+        - eu
+        - ro
+        - hr
+        - nb
+        - sl
+        - gl
+        - share®sk
+        - hu
+        - ko
+        - pt
+        - el
+        - fi
+        - id
+        - cs
+        - da
+        - zh_TW
+        - nl
+        - pt_BR
+        - vi
+        - ca
+        - sr
+        - ja
+        - zh_CN
+        - bg
+        - tr
+        - it
+        - pl
+        - es
+        - sv
+        - de
+        - fr
+        - ru
+
+   - name: Change password for user pi
+     user:
+       name: pi
+       password: "{{ new_password }}"
+
+   - name: Pause until you can verify updates to an application were successful
+     pause:
+
+   - name: shutdown the system in 1 minute
+     command: shutdown -h +1
+     tags: 
+     - AnsibleHousekeeping
