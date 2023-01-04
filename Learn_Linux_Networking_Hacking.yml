@@ -74,6 +74,13 @@
        replace: "{{ docker_host }}"
      when: "'{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }} is defined'"
 
+   - name: Modify the /etc/apt/sources.list.d/raspi.list apt source if the playbook host has DOCKER_HOST environmental variable
+     ansible.builtin.replace:
+       path: /etc/apt/sources.list.d/raspi.list
+       regexp: '(?:10.6.6.1)'
+       replace: "{{ docker_host }}"
+     when: "'{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }} is defined'"
+
    - name: Run the equivilent of apt-get update
      apt:
        update_cache: yes 
