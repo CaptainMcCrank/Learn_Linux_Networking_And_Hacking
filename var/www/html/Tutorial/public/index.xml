@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Challenge Site</title>
+    <title>Shell</title>
     <link>http://10.10.10.1/Tutorial/</link>
-    <description>Recent content on Challenge Site</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://10.10.10.1/Tutorial/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content on Shell</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="http://10.10.10.1/Tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Defacing</title>
       <link>http://10.10.10.1/Tutorial/defacing/</link>

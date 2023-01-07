@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>Access</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="" />
+    <style>
+@import "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap";:root{--cursor-visibility:hidden}html,body{width:100%;height:100%;overflow:auto;font-family:inconsolata,monospace;font-size:4vmin;line-height:4.1vmin;font-weight:400}body{margin:0;display:flex;flex-direction:row;justify-content:center;align-items:center}#content{min-width:82vmin;min-height:82vmin}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{border-radius:10px;box-shadow:inset 0 0 1px white}::-webkit-scrollbar-thumb{border-radius:10px;box-shadow:0 0 0 1px white}.cursor,#activity-title:after,#activity-content:after,#cd:after,#whoami:after,#cat:after,#tree:after{visibility:var(--cursor-visibility);content:"|";overflow:hidden;color:#fff;animation:blink 500ms linear infinite alternate}@keyframes blink{0%{opacity:0}100%{opacity:1}}@media only screen and (min-width:768px){body{font-size:2.5vmin;line-height:2.6vmin}#content{min-width:60vmin}}:root{--cursor-visibility:hidden}body{align-items:unset;overflow-y:scroll}#content{max-width:80vmin}pre{overflow-x:scroll;white-space:pre}@keyframes blink{0%{opacity:0}100%{opacity:1}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+body{background:#1b1d1e}body #terminal{color:#BBBBBB}body #user{color:#23E298}body #dir{color:#D08010}body .Typewriter__cursor{color:#BBBBBB}a{color:#BBBBBB}
+
+        
+.navFull {
+    background-color: #353535;
+    font-family: "Courier New";
+    font-size: 17px;
+    display: inline;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-top: 5px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navCredits {
+    float: right;
+    padding-right: 18px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+#content::after {
+    content: "\a\a";
+    white-space: pre;
+}
+        
+        
+</style>
+
+
+
+</head><body><div id="content">
+    
+    
+    
+
+
+    <span id="activity-title"></span> <br>
+ <span id="activity-content"></span> <br>
+
+<script type="text/javascript">
+    async function typewriter(text, elementId, waitAfter) {
+        var n = 0,
+            isTag = false
+        addText = "";
+        const el = document.getElementById(elementId);
+
+        const wait = () => new Promise(r => setTimeout(r, waitAfter));
+        const nowait = () => new Promise(r => r());
+
+        const render = () => el.innerHTML = (text.slice(0, n + 1) + addText);
+
+        const cursor = document.createElement('span');
+        cursor.id = "blink";
+
+        el.style.setProperty("--cursor-visibility", "visible");
+        while (n < text.length) {
+            if (text.charAt(n + 1) === "<") isTag = true;
+            if (text.charAt(n + 1) === ">") isTag = false;
+
+            if (isTag) {
+                n++;
+                continue;
+            }
+
+            requestAnimationFrame(render);
+
+            if (waitAfter === 0) {
+                await nowait();
+            } else {
+                await wait();
+            }
+
+            n++;
+        }
+        el.style.setProperty("--cursor-visibility", "collapse");
+    }
+
+    function parseDelay(d) {
+        const parsed = parseInt(d, 10);
+        if (isNaN(parsed)) return 0;
+        return parsed;
+    }
+
+    const titleDelay = parseDelay("0"),
+        contentDelay = parseDelay("0");
+    const typeeffetct = async () => {
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003ch1 id=\u0027title\u0027\u003eAccess\u003c\/h1\u003e\u003c\/span\u003e", "activity-title", titleDelay);
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003ch2 id=\u0022gaining-access\u0022\u003eGaining Access\u003c\/h2\u003e\n\u003ch3 id=\u0022prerequistes\u0022\u003ePrerequistes\u003c\/h3\u003e\n\u003cp\u003eYou should read this section if you have identified the answers to the following questions from section 1:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003eWhat is the ip address of the device you are using to connect to the wifi network?\u003c\/li\u003e\n\u003cli\u003eWhat is the default gateway for the wifi interface of the device when it’s attached to the wifi network?\u003c\/li\u003e\n\u003cli\u003eWhat service numbers \u0026amp; corresponding protocols did you discovered on the target system?\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003ch1 id=\u0022your-objectives\u0022\u003eYour Objectives:\u003c\/h1\u003e\n\u003col\u003e\n\u003cli\u003eUse a tool to connect to the ssh port of the raspberry pi\u0026rsquo;s ip address.\u003c\/li\u003e\n\u003cli\u003eGuess the password of the system\u003c\/li\u003e\n\u003cli\u003eGain access to the system\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003eYou are ready for the next activity when you see a login screen that looks like this:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022..\/login.png\u0022 alt=\u0022Success\u0022\u003e\u003c\/p\u003e\n\u003ch2 id=\u0022tips-what-do-we-know\u0022\u003eTips: What do we know?\u003c\/h2\u003e\n\u003cp\u003eWe know the address of the hotspot and we know that there are some open ports on that address.  How do we know the address of the hotspot?\u003c\/p\u003e\n\u003cp\u003eYou have successfully completed a scan of the target.  Your scanner might have given you hints as to what the services are for- but these service names are not always reliable.  You can consider it a clue, but let\u0026rsquo;s learn how these tools infer the name of a service.\u003c\/p\u003e\n\u003ch3 id=\u0022default-gatway\u0022\u003eDefault Gatway\u003c\/h3\u003e\n\u003cp\u003eThe default gateway is the Internet Protocol address assigned to the access point\u0026rsquo;s wifi interface.  When you found your device\u0026rsquo;s default gateway, you found the address of the system you are going to target.\u003c\/p\u003e\n\u003cp\u003eA default gateway connects a network to the Internet.  It is the host your phone\/pc sends data through to connect to the Internet.  If you\u0026rsquo;re on a wifi network that works, there is a default gateway.  If you\u0026rsquo;re on a mobile network that works, there is a default gateway.  Every network has it\u0026rsquo;s own gateway.\u003c\/p\u003e\n\u003cp\u003eIn the current hotspot state, the device is not attached to the Internet.  It\u0026rsquo;s still cool though!  For example- the default gateway hosts this very cool web page!\u003c\/p\u003e\n\u003ch3 id=\u0022listening-ports\u0022\u003eListening ports\u003c\/h3\u003e\n\u003cp\u003eYou also know some port numbers that seem to be listening.  A port number is like an apartment number or PO box address.  You can think about port number like an apartment building address.  An apartment complex has a single shared address on some street:\u003c\/p\u003e\n\u003cp\u003eTo: Patrick\n420 Paper St.\nWilmington DE 19886\u003c\/p\u003e\n\u003cp\u003eBut if you want to send a letter to a specific family, you have to specify an apartment number.  Everyone at the building has the same address, but each family has their own apartment number.\u003c\/p\u003e\n\u003cp\u003eTo: Patrick\n420 Paper St.\nApartment 33\nWilmington DE 19886\u003c\/p\u003e\n\u003cp\u003ePort numbers like apartment numbers.  They are specific to process which accepts connections on the target system.  If you want to interact with the target system, you have to specify the port you\u0026rsquo;re connecting to.  If there is no service listening on that port, you won\u0026rsquo;t be able to connect.  An attacker must:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003especify the IP address of the system they want to perturb\u003c\/li\u003e\n\u003cli\u003especify the port that they are attaching to on that system\u003c\/li\u003e\n\u003cli\u003eand use a client that speaks the service\u0026rsquo;s protocol to work with the service.\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003eWe know an address and we know some ports.  Let\u0026rsquo;s learn about what\u0026rsquo;s going on for those ports so we can develop a plan for gaining access to the system.\u003c\/p\u003e\n\u003ch2 id=\u0022learning-about-entry-points\u0022\u003eLearning about entry points\u003c\/h2\u003e\n\u003cp\u003eYour scanner might report service names discovered on the system.  These scanning tools are not always accurate. You can consider it a clue, but you should assume only the port numbers are right.  Let’s learn how these tools infer the name of a service.\u003c\/p\u003e\n\u003cp\u003eThe Internet Assigned Numbers Authority (iana.org) is responsible for the authoritative standards of how numbering is assigned in internet services. They publish a web site that hosts these materials. \u003ca href=\u0022https:\/\/www.iana.org\/assignments\/service-names-port-numbers\/service-names-port-numbers.xhtml\u0022\u003ehttps:\/\/www.iana.org\/assignments\/service-names-port-numbers\/service-names-port-numbers.xhtml\u003c\/a\u003e\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003e\n\u003cp\u003eBrowse to the iana website.\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003eSearch for the port numbers you found to discover what kinds of services you discovered. Search for the possible “service name” that corresponds to the port number.\u003c\/p\u003e\n\u003c\/li\u003e\n\u003cli\u003e\n\u003cp\u003eThe service might have a reference RFC listed. Click on it to learn more about the service assigned to that port number.  Be sure to read the section called \u003cstrong\u003eAbstract\u003c\/strong\u003e for a quick review of its objectives.  Scan through the table of contents to see if there are any topics that look interesting to you.  It might be useful to look into any sections labeled ** Security Properties \u003cstrong\u003e, ** Security Considerations ** and the word ** Authentication\u003c\/strong\u003e.\u003c\/p\u003e\n\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003eBy now you should have discovered a few services on the target system. You should research the names of the services you’ve discovered. These are all the ways we can gain access to a system without needing physical access to it.  The \u0026ldquo;Threat Surface\u0026rdquo; is the list of all possible entry points into a system.\u003c\/p\u003e\n\u003ch3 id=\u0022attaching-to-an-http-entry-point\u0022\u003eAttaching to an http entry point\u003c\/h3\u003e\n\u003cp\u003eYou need to use the correct client to attach to an entry point.  If a service provides http or https support, you can use a web browser to attach to it.   You can use the ip address of the system, plus the port number to attach.\u003c\/p\u003e\n\u003cp\u003eFor an http session, you would connect to http:\/\/[Default Gateway IP]:[Port Number].  E.g. http:\/\/10.10.10.1:80\u003c\/p\u003e\n\u003cp\u003eHTTPS sessions are typically hosted on port 443.  So in that instance you\u0026rsquo;d connect to http:\/\/10.10.10.1:443.\u003c\/p\u003e\n\u003cp\u003eThe IANA list is generally followed- but you cannot depend on a mapping of a port number to a specific service.  Clever sysadmins can host any service they want on a port.  This means that service listening on port 80 may not be an http server.  You can only confirm this by connecting to it with the correct client.\u003c\/p\u003e\n\u003ch3 id=\u0022attaching-to-an-ssh-entry-point\u0022\u003eAttaching to an ssh entry point\u003c\/h3\u003e\n\u003cp\u003eHackers identify all opportunities to tamper with data processed by a targeted asset.  Hackers find services that are \u0026ldquo;listening\u0026rdquo; for packets.  A listening service will accept packets sent by a hacker.  If you find listening services, you\u0026rsquo;ve found a potential entry point.\u003c\/p\u003e\n\u003cp\u003eOften, we can get by with  basic techniques like guessing user accounts and passwords.  Secure systems use sophisticated authentication that makes guessing or stealing a credential impossible.  For those systems, we must explore more advanced techniques. This challenge is easy enough that we won\u0026rsquo;t worry about that approach for now.\u003c\/p\u003e\n\u003cp\u003eOn a mobile device, you can use the \u003ca href=\u0022https:\/\/apps.applecom\/us\/app\/prompt-2\/id917437289\u0022\u003eprompt app\u003c\/a\u003e to ssh into a system.  You\u0026rsquo;ll have to load it up and put the address you identified for the hotspot into the server address and specify port 80.  You\u0026rsquo;ll also have to specify a user name and a password.  This is where you should start doing some research.\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003eWhat is a common username for the Raspbian operating system?\u003c\/li\u003e\n\u003cli\u003eWhat passwords are commonly used?\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003ch3 id=\u0022anecdotes\u0022\u003eAnecdotes\u003c\/h3\u003e\n\u003cp\u003eThere are two organizations that define significant standards for the Internet. These are the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA). The IETF publishes documents called Requests for Comments (RFCs). The RFCs are written by communities of engineers who collaborate to define the design of a protocol. They articulate how various things on the internet should work. This material is then used as a guide by software developers who implement the code that should produce various experiences. Reading an RFC can tell you how things are supposed to work. But the only way to know for sure how a certain program ACTUALLY works is to look at it’s code. Luckily, you do not need to learn to code to get started. But if your goal is to be an effective and influential security engineer, you must be able to read \u0026amp; contribute code.\u003c\/p\u003e\n\u003c\/span\u003e", "activity-content", contentDelay);
+        return;
+    }
+
+    typeeffetct()
+</script>
+
+        </div>
+        
+        <span class="navFull">
+        
+    
+    
+
+    
+        
+
+<span>
+    <a href="/">Home</a>
+    <span>&#8192;|&#8192;</span>
+    <a href="./..">/Tutorial/</a>
+</span>
+
+    
+
+        
+        <span class="navCredits">
+            Hugo theme created by
+            <a href="https://github.com/Yukuro/hugo-theme-shell" target="_blank" rel="noopener">Yukuro</a>
+        </span>
+</span>
+
+        
+         
+    </body>
+</html>

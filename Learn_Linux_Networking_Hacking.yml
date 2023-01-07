@@ -90,45 +90,6 @@
        upgrade: dist
      tags: AnsibleHousekeeping 
 
-   - name: upgrade pip (PIP3 is required for modern ansible)
-     command: python -m pip install --upgrade pip
-     tags: hotspot
-
-   - name: "install python runtime&build dependencies.  (Ensures we have Python {{py_version}}, which is needed for long term ansible support)."
-     apt:
-       name: ['build-essential', 'tk-dev', 'libncurses5-dev', 'libncursesw5-dev', 'libreadline6-dev','libdb5.3-dev', 'libgdbm-dev', 'libsqlite3-dev', 'libbz2-dev', 'libexpat1-dev', 'liblzma-dev', 'zlib1g-dev', 'libffi-dev']
-       #name: ['build-essential', 'tk-dev', 'libncurses5-dev', 'libncursesw5-dev', 'libreadline6-dev','libdb5.3-dev', 'libgdbm-dev', 'libsqlite3-dev', 'libssl-dev', 'libbz2-dev', 'libexpat1-dev', 'liblzma-dev', 'zlib1g-dev', 'libffi-dev']
-
-   - name: "Download python{{py_version}}"
-     get_url:
-       url="https://www.python.org/ftp/python/{{py_version}}/Python-{{py_version}}.tar.xz"
-       dest="/tmp/Python-{{py_version}}.tar.xz"
-
-   - name: "Unarchive downloaded python"
-     unarchive:
-       src="/tmp/Python-{{py_version}}.tar.xz"
-       dest="/tmp/"
-       copy=no
-       creates="/tmp/Python-{{py_version}}"
-
-   - name: "configure python{{py_version}} build"
-     command: ./configure
-     args:
-       chdir: "/tmp/Python-{{py_version}}"
-       creates: "/tmp/Python-{{py_version}}/Makefile"
-
-   - name: "build python"
-     # not using make module to be able to use -j and creates option to fully skip step
-     command: make -j{{threads}}
-     args:
-       chdir: "/tmp/Python-{{py_version}}"
-       creates: "/tmp/Python-{{py_version}}/python"
-
-   - name: "Finally, install the python build we pulled & compiled!"
-     make:
-       chdir: "/tmp/Python-{{py_version}}"
-       target: altinstall
-
    - name: Remove Wolfram-engine
      apt:
        name: wolfram-engine
@@ -184,20 +145,62 @@
        src: "{{ root_playbook_dir }}/bin/register.sh"
        dest: /bin/.
      tags: DeviceRegistration
-
-   - name: Copy www files over to target
-     synchronize:
-       src: "{{ root_playbook_dir }}/var/www/"
-       dest: /var/www/
-       recursive: yes
-     tags: 
-       - LearnLinuxNetworkingHacking1
     
    - name: Create /var/www/html directory
      file: path=/var/www/html state=directory mode=0755 owner=www-data group=www-data
      tags: 
        - LearnLinuxNetworkingHacking
-        
+
+   - name: Copy root www files over to target
+     copy:
+       src: '{{item}}'  
+       dest: /var/www/html
+       owner: root
+       group: root
+       mode: 0644
+     loop: 
+       - "{{ root_playbook_dir }}/var/www/html/index.html"
+       - "{{ root_playbook_dir }}/var/www/html/script.js"
+       - "{{ root_playbook_dir }}/var/www/html/style.css"
+
+     tags: 
+       - LearnLinuxNetworkingHacking1
+
+   - name: Create /var/www/html/Tutorial directory
+     file: path=/var/www/html/Tutorial state=directory mode=0755 owner=www-data group=www-data
+     tags: 
+       - LearnLinuxNetworkingHacking
+
+   - name: Copy Tutorial www files over to target
+     copy:
+       src: "{{ root_playbook_dir }}/var/www/html/Tutorial/public/"  
+       dest: /var/www/html/Tutorial
+       owner: root
+       group: root
+       mode: 0644
+     tags: 
+       - LearnLinuxNetworkingHacking1
+
+   - name: Modify the Tutorial/index.html file to replace the https links with http
+     ansible.builtin.replace:
+       path: /var/www/html/Tutorial/index.html
+       regexp: '(?:href=\\u0027https:)' 
+       replace: "href=\u0027http:"
+
+   - name: Remove fonts.googleapis.com references from the tutorial pages.
+     ansible.builtin.replace:
+       path: '{{item}}'
+       regexp: '@import "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap";:' 
+       replace: "\n"
+     loop: 
+       - "/var/www/html/Tutorial/scanning/index.html"
+       - "/var/www/html/Tutorial/access/index.html"
+       - "/var/www/html/Tutorial/defacing/index.html"
+       - "/var/www/html/Tutorial/index.html"
+
+   - name: Pause until you can verify updates to an application were successful
+     pause:
+
    - name: chmoding /var/www/html/
      file:
        path: /var/www/html/
@@ -283,14 +286,6 @@
        mode: 0644
      tags: os_config_files
 
-   - name: Copy /etc/wpa_supplicant/wpa_supplicant.conf file
-     copy:
-       src: "{{ root_playbook_dir }}/etc/wpa_supplicant/wpa_supplicant.conf"
-       dest: /etc/wpa_supplicant/wpa_supplicant.conf
-       owner: root
-       group: root
-       mode: 0500
-     tags: os_config_files
 
    - name: Copy /etc/dhcpcd.conf file #Likely needs updates if I change interfaces
      copy:
@@ -305,6 +300,15 @@
      copy:
        src: "{{ root_playbook_dir }}/etc/host.conf"
        dest: /etc/host.conf
+       owner: root
+       group: root
+       mode: 0644
+     tags: os_config_files
+
+   - name: Copy naked /etc/wpa_supplicant/wpa_supplicant.conf file 
+     copy:
+       src: "{{ root_playbook_dir }}/etc/wpa_supplicant/wpa_supplicant.conf"
+       dest: /etc/wpa_supplicant/wpa_supplicant.conf
        owner: root
        group: root
        mode: 0644
@@ -479,13 +483,6 @@
        recursive: yes
      tags: web
 
-   - name: Copy the tutorial pages over 
-     ansible.posix.synchronize: 
-       src: "{{ root_playbook_dir }}/var/www/html/Tutorial"
-       dest: /var/www/html/Tutorial
-       recursive: yes
-     tags: LearnLinuxNetworkHacking
-
    - name: Copy systemd timers & services files for device registration
      become_user: pi
      copy:
@@ -559,12 +556,10 @@
        mode: 0744
      tags: os_config_files
 
-
    - name: enable dnsmasq
      command: systemctl enable dnsmasq
      tags: 
      - Hotspot
-
 
    - name: Install hostapd
      apt:
@@ -648,231 +643,6 @@
      tags: 
      - os_config_files
      - DeviceRegistration
-
-
-   - name: Because we're near the limit for an 8gb card, we're going to delete unnecessary locale data.
-     file:
-       state: absent
-       path: "/usr/share/locale/{{ item }}"
-     loop: 
-        - ab
-        - ace
-        - ay
-        - ba
-        - bal
-        - bem
-        - bi
-        - ch
-        - ee
-        - iu
-        - kl
-        - ko_KR
-        - la
-        - mo
-        - pap
-        - qu
-        - shn
-        - sr@Latn
-        - szl
-        - ak
-        - bar
-        - chr
-        - es_AR
-        - es_ES
-        - haw
-        - ht
-        - id_ID
-        - ki
-        - kv
-        - na
-        - nah
-        - nv
-        - bo
-        - ce
-        - gl_ES
-        - jam
-        - kw
-        - nb_NO
-        - new
-        - pi
-        - son
-        - sk        
-        - tzm
-        - wae
-        - wal
-        - zh_Hant
-        - az_IR
-        - en_NZ
-        - gn
-        - gv
-        - kok
-        - lo
-        - sd
-        - sw
-        - dv
-        - mhr
-        - mjw
-        - cv
-        - ve
-        - bn_BD
-        - byn
-        - gez
-        - so
-        - tig
-        - ang
-        - csb
-        - ti
-        - cgg
-        - fil
-        - tt@iqtelif
-        - wo
-        - hy_AM
-        - no
-        - de_CH
-        - et_EE
-        - hye
-        - frp
-        - mt
-        - ig
-        - ha
-        - ach
-        - ie
-        - tk
-        - io
-        - am_ET
-        - ff
-        - ku_IQ
-        - ur_PK
-        - yo
-        - kg
-        - tt_RU
-        - lb
-        - mi
-        - kab
-        - zu
-        - ckb
-        - fo
-        - ur
-        - uz@cyrillic
-        - am
-        - rw
-        - li
-        - co
-        - en_AU
-        - mg
-        - tl
-        - tt
-        - ky
-        - uz
-        - nds
-        - sc
-        - yi
-        - ps
-        - sr_RS
-        - nso
-        - sr@ije
-        - sr_RS@latin
-        - ia
-        - ku
-        - lg
-        - br
-        - az
-        - xh
-        - wa
-        - tg
-        - fy
-        - mn
-        - es_MX
-        - ks_IN
-        - gd
-        - si
-        - be@latin
-        - en_CA
-        - en@shaw
-        - my
-        - as_IN
-        - brx
-        - en@quot
-        - hy
-        - en@boldquot
-        - af
-        - ka
-        - an
-        - crh
-        - pt_PT
-        - cy
-        - mk
-        - sq
-        - fa
-        - fur
-        - is
-        - zh_HK
-        - bs
-        - ga
-        - dz
-        - ne
-        - ug
-        - kk
-        - nn
-        - mai
-        - as
-        - ca@valencia
-        - km
-        - ms
-        - sr@latin
-        - ar
-        - eo
-        - hi
-        - oc
-        - or
-        - ast
-        - et
-        - te
-        - th
-        - bn
-        - bn_IN
-        - he
-        - lv
-        - ta
-        - gu
-        - be
-        - kn
-        - pa
-        - lt
-        - ml
-        - mr
-        - eu
-        - ro
-        - hr
-        - nb
-        - sl
-        - gl
-        - share®sk
-        - hu
-        - ko
-        - pt
-        - el
-        - fi
-        - id
-        - cs
-        - da
-        - zh_TW
-        - nl
-        - pt_BR
-        - vi
-        - ca
-        - sr
-        - ja
-        - zh_CN
-        - bg
-        - tr
-        - it
-        - pl
-        - es
-        - sv
-        - de
-        - fr
-        - ru
 
    - name: Change password for user pi
      user:

@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>Defacing</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="" />
+    <style>
+@import "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap";:root{--cursor-visibility:hidden}html,body{width:100%;height:100%;overflow:auto;font-family:inconsolata,monospace;font-size:4vmin;line-height:4.1vmin;font-weight:400}body{margin:0;display:flex;flex-direction:row;justify-content:center;align-items:center}#content{min-width:82vmin;min-height:82vmin}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{border-radius:10px;box-shadow:inset 0 0 1px white}::-webkit-scrollbar-thumb{border-radius:10px;box-shadow:0 0 0 1px white}.cursor,#activity-title:after,#activity-content:after,#cd:after,#whoami:after,#cat:after,#tree:after{visibility:var(--cursor-visibility);content:"|";overflow:hidden;color:#fff;animation:blink 500ms linear infinite alternate}@keyframes blink{0%{opacity:0}100%{opacity:1}}@media only screen and (min-width:768px){body{font-size:2.5vmin;line-height:2.6vmin}#content{min-width:60vmin}}:root{--cursor-visibility:hidden}body{align-items:unset;overflow-y:scroll}#content{max-width:80vmin}pre{overflow-x:scroll;white-space:pre}@keyframes blink{0%{opacity:0}100%{opacity:1}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+body{background:#1b1d1e}body #terminal{color:#BBBBBB}body #user{color:#23E298}body #dir{color:#D08010}body .Typewriter__cursor{color:#BBBBBB}a{color:#BBBBBB}
+
+        
+.navFull {
+    background-color: #353535;
+    font-family: "Courier New";
+    font-size: 17px;
+    display: inline;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-top: 5px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navCredits {
+    float: right;
+    padding-right: 18px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+#content::after {
+    content: "\a\a";
+    white-space: pre;
+}
+        
+        
+</style>
+
+
+
+</head><body><div id="content">
+    
+    
+    
+
+
+    <span id="activity-title"></span> <br>
+ <span id="activity-content"></span> <br>
+
+<script type="text/javascript">
+    async function typewriter(text, elementId, waitAfter) {
+        var n = 0,
+            isTag = false
+        addText = "";
+        const el = document.getElementById(elementId);
+
+        const wait = () => new Promise(r => setTimeout(r, waitAfter));
+        const nowait = () => new Promise(r => r());
+
+        const render = () => el.innerHTML = (text.slice(0, n + 1) + addText);
+
+        const cursor = document.createElement('span');
+        cursor.id = "blink";
+
+        el.style.setProperty("--cursor-visibility", "visible");
+        while (n < text.length) {
+            if (text.charAt(n + 1) === "<") isTag = true;
+            if (text.charAt(n + 1) === ">") isTag = false;
+
+            if (isTag) {
+                n++;
+                continue;
+            }
+
+            requestAnimationFrame(render);
+
+            if (waitAfter === 0) {
+                await nowait();
+            } else {
+                await wait();
+            }
+
+            n++;
+        }
+        el.style.setProperty("--cursor-visibility", "collapse");
+    }
+
+    function parseDelay(d) {
+        const parsed = parseInt(d, 10);
+        if (isNaN(parsed)) return 0;
+        return parsed;
+    }
+
+    const titleDelay = parseDelay("0"),
+        contentDelay = parseDelay("0");
+    const typeeffetct = async () => {
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003ch1 id=\u0027title\u0027\u003eDefacing\u003c\/h1\u003e\u003c\/span\u003e", "activity-title", titleDelay);
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003cp\u003eHere are the commands you can use to change directory to \u003ccode\u003e\/var\/www\/html\/\u003c\/code\u003e, make a backup of the \u003ccode\u003eindex.html\u003c\/code\u003e file, and modify the web page to update the \u003ccode\u003eh3\u003c\/code\u003e tag:\u003c\/p\u003e\n\u003col\u003e\n\u003cli\u003eTo change directory to \u003ccode\u003e\/var\/www\/html\/\u003c\/code\u003e, use the \u003ccode\u003ecd\u003c\/code\u003e command:\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e\u003ccode\u003ecd \/var\/www\/html\/\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eTo check the filesystem permissions of \/var\/www\/html\/index.html on a Linux system, you can use the ls command with the -l option, which displays detailed information about the file, including its permissions.\u003c\/p\u003e\n\u003cp\u003eFor example, to check the permissions of \/var\/www\/html\/index.html, you can use the following command:\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003els -l \/var\/www\/html\/index.html\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eThis will display output similar to the following:\u003c\/p\u003e\n\u003cp\u003e-rw-r\u0026ndash;r\u0026ndash; 1 root root 675 Jan 1 12:34 \/var\/www\/html\/index.html\u003c\/p\u003e\n\u003cp\u003eThe first column of the output shows the permissions for the file. In this example, the permissions are -rw-r\u0026ndash;r\u0026ndash;, which means that the owner of the file has read and write permissions (rw-), and others have read-only permissions (r\u0026ndash;).\u003c\/p\u003e\n\u003cp\u003eThe second and third columns show the owner and group owner of the file, respectively. In this example, the owner is root and the group owner is also root.\u003c\/p\u003e\n\u003cp\u003eThe fourth column shows the size of the file in bytes. In this example, the size of \/var\/www\/html\/index.html is 675 bytes.\u003c\/p\u003e\n\u003cp\u003eThe fifth and sixth columns show the date and time when the file was last modified. In this example, the file was last modified on January 1st at 12:34.\u003c\/p\u003e\n\u003cp\u003eThe final column shows the name of the file.\u003c\/p\u003e\n\u003cp\u003eTo find out what account you are currently using on a Linux system, you can use the whoami command. This command prints the current user\u0026rsquo;s username to the terminal.\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003ewhoami\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eYou can also use the id command to display more information about the current user, including the user\u0026rsquo;s user ID (UID) and group ID (GID). For example:\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003eid\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003euid=1000(jane) gid=1000(jane) groups=1000(jane),4(adm),24(cdrom),27(sudo),46(plugdev)\u003c\/p\u003e\n\u003cp\u003eThe uid and gid fields show the user\u0026rsquo;s UID and GID, respectively. The groups field lists the user\u0026rsquo;s supplementary groups.\u003c\/p\u003e\n\u003col start=\u00222\u0022\u003e\n\u003cli\u003eTo make a backup of the \u003ccode\u003eindex.html\u003c\/code\u003e file, use the \u003ccode\u003ecp\u003c\/code\u003e command to copy the file to a new location:\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e\u003ccode\u003ecp index.html index.html.bak\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eYou will get a permissions error, because index.html is owned by root.\u003c\/p\u003e\n\u003cp\u003eWe need a way to overcome this.  Fortunately, there\u0026rsquo;s a tool that can grant users temporary root privileges.  It\u0026rsquo;s called sudo- and it only works if the account we\u0026rsquo;re logged in as is part of the sudoer group.\u003c\/p\u003e\n\u003cp\u003eTo check if you are a member of the sudo group on a Linux system, you can use the groups command. This command displays the groups that the current user is a member of.\u003c\/p\u003e\n\u003cp\u003eFor example, to check if you are a member of the sudo group, you can run the following command:\n\u003ccode\u003egroups\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eThis will display a list of the groups that you are a member of. If the sudo group is listed, then you are a member of the sudo group and have the ability to run commands with sudo.\u003c\/p\u003e\n\u003cp\u003eYou can also use the id command to check if you are a member of the sudo group. For example:\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003eid -Gn | grep sudo\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eThis will display the names of the groups that you are a member of, and the grep command will search the output for the string sudo. If the sudo group is listed, then you are a member of the sudo group.\u003c\/p\u003e\n\u003cp\u003eif pi is a member of the sudo group, you can use the \u003ccode\u003esudo\u003c\/code\u003e command to run the command as root.\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003esudo cp index.html index.html.bak\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eThis works because the user \u0026ldquo;pi\u0026rdquo; is part of the sudoer group\u003c\/p\u003e\n\u003cp\u003eThis creates a copy of \u003ccode\u003eindex.html\u003c\/code\u003e with the name \u003ccode\u003eindex.html.bak\u003c\/code\u003e.\u003c\/p\u003e\n\u003col start=\u00223\u0022\u003e\n\u003cli\u003eTo modify the web page, you can use a text editor such as \u003ccode\u003enano\u003c\/code\u003e or \u003ccode\u003evi\u003c\/code\u003e. For example, to open the \u003ccode\u003eindex.html\u003c\/code\u003e file in \u003ccode\u003enano\u003c\/code\u003e, you can use the following command:\u003c\/li\u003e\n\u003c\/ol\u003e\n\u003cp\u003e\u003ccode\u003enano index.html\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eUse the arrow keys to navigate to the \u003ccode\u003eh3\u003c\/code\u003e tag, and update the text between the opening and closing tags to say \u0026ldquo;Elena was here!\u0026rdquo;.\u003c\/p\u003e\n\u003cp\u003eTo save your changes and exit \u003ccode\u003enano\u003c\/code\u003e, press \u003ccode\u003eCtrl \u002b X\u003c\/code\u003e, then press \u003ccode\u003eY\u003c\/code\u003e to confirm that you want to save the changes, and finally press \u003ccode\u003eEnter\u003c\/code\u003e.\u003c\/p\u003e\n\u003cp\u003eTo learn how to build your own webpage, visit this page:\n\u003ca href=\u0022https:\/\/learn.shayhowe.com\/html-css\/building-your-first-web-page\/\u0022\u003ehttps:\/\/learn.shayhowe.com\/html-css\/building-your-first-web-page\/\u003c\/a\u003e\u003c\/p\u003e\n\u003c\/span\u003e", "activity-content", contentDelay);
+        return;
+    }
+
+    typeeffetct()
+</script>
+
+        </div>
+        
+        <span class="navFull">
+        
+    
+    
+
+    
+        
+
+<span>
+    <a href="/">Home</a>
+    <span>&#8192;|&#8192;</span>
+    <a href="./..">/Tutorial/</a>
+</span>
+
+    
+
+        
+        <span class="navCredits">
+            Hugo theme created by
+            <a href="https://github.com/Yukuro/hugo-theme-shell" target="_blank" rel="noopener">Yukuro</a>
+        </span>
+</span>
+
+        
+         
+    </body>
+</html>
