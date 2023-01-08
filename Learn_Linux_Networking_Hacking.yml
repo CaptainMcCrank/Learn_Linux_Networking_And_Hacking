@@ -181,7 +181,7 @@
      tags: 
        - LearnLinuxNetworkingHacking1
 
-   - name: Modify the Tutorial/index.html file to replace the https links with http
+   - name: Modify the Tutorial/index.html file to replace the internal https links with http (We can turn on https in a later lesson to teach kids the value of encryption)
      ansible.builtin.replace:
        path: /var/www/html/Tutorial/index.html
        regexp: '(?:href=\\u0027https:)' 
@@ -190,16 +190,13 @@
    - name: Remove fonts.googleapis.com references from the tutorial pages.
      ansible.builtin.replace:
        path: '{{item}}'
-       regexp: '@import "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap";:' 
+       regexp: '(?:@import "https:\/\/fonts\.googleapis\.com\/css2\?family=Inconsolata&display=swap";:)' 
        replace: "\n"
      loop: 
        - "/var/www/html/Tutorial/scanning/index.html"
        - "/var/www/html/Tutorial/access/index.html"
        - "/var/www/html/Tutorial/defacing/index.html"
        - "/var/www/html/Tutorial/index.html"
-
-   - name: Pause until you can verify updates to an application were successful
-     pause:
 
    - name: chmoding /var/www/html/
      file:
@@ -648,9 +645,6 @@
      user:
        name: pi
        password: "{{ new_password }}"
-
-   - name: Pause until you can verify updates to an application were successful
-     pause:
 
    - name: shutdown the system in 1 minute
      command: shutdown -h +1
