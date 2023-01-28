@@ -90,6 +90,13 @@
        upgrade: dist
      tags: AnsibleHousekeeping 
 
+   - name: Install avahi
+     apt:
+       name: avahi-daemon
+       state: present
+       update_cache: true
+     tags: AnsibleHousekeeping
+
    - name: Remove Wolfram-engine
      apt:
        name: wolfram-engine
@@ -541,8 +548,38 @@
        state: present
        update_cache: true
      tags: 
-
      - Hotspot
+
+   - name: Install sense-hat 
+     apt:
+       name: sense-hat
+       state: present
+       update_cache: true
+     tags: base
+
+   - name: Install pip3 scapy 
+     pip:
+       executable: pip3
+       name: scapy
+     tags: base
+
+   - name: Install pip3 netifaces 
+     pip:
+       executable: pip3
+       name: netifaces
+     tags: base
+
+   - name: Install pip3 netaddr 
+     pip:
+       name: netaddr
+     tags: base
+
+   - name: Install curl 
+     apt:
+       name: curl
+       state: present
+       update_cache: true
+     tags: base
 
    - name: Copy /etc/dnsmasq.conf configuration that is used for DHCP assignment #Likely needs updates if I change interfaces
      copy:
