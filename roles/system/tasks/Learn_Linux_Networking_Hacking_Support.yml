@@ -1,0 +1,71 @@
+---
+
+   - name: Install avahi
+     apt:
+       name: avahi-daemon
+       state: present
+       update_cache: true
+     tags: AnsibleHousekeeping
+
+   - name: Install git 
+     apt:
+       name: git
+       state: present
+       update_cache: true
+     tags: AnsibleHousekeeping
+
+   - name: install dependencies for some things that I don't recall the motivation for
+     apt:
+       name: "{{item}}"
+       state: present
+       update_cache: yes
+     loop:
+         - apt-transport-https
+         - ca-certificates
+         - curl
+         - gnupg-agent
+         - software-properties-common
+     tags: 
+     - DeviceRegistration
+     - UnknownDependencies
+
+   - name: Install sense-hat 
+     apt:
+       name: sense-hat
+       state: present
+       update_cache: true
+     tags: base
+
+   - name: Install pip3 scapy 
+     pip:
+       executable: pip3
+       name: scapy
+     tags: base
+
+   - name: Install pip3 netifaces 
+     pip:
+       executable: pip3
+       name: netifaces
+     tags: base
+
+   - name: Install pip3 netaddr 
+     pip:
+       name: netaddr
+     tags: base
+
+   - name: Install curl 
+     apt:
+       name: curl
+       state: present
+       update_cache: true
+     tags: base
+
+   - name: Change password for user pi
+     user:
+       name: pi
+       password: "{{ new_password | password_hash('sha512') }}"
+
+   - name: shutdown the system in 1 minute
+     command: shutdown -h +1
+     tags: 
+     - AnsibleHousekeeping

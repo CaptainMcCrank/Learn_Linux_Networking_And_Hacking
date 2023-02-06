@@ -1,0 +1,62 @@
+---
+
+   - name: Install hostapd
+     apt:
+       name: hostapd
+       state: present
+       update_cache: true
+     tags: hotspot
+
+   - name: Create hostapd Configuration directory
+     file: path=/etc/hostapd/ state=directory mode=0755
+     tags: hotspot
+
+   - name: Copy /etc/hostapd/CaptivePortalStarter.conf configuration that is used to set a forwarding hotspot with no password #Likely needs updates if I change interfaces
+     ansible.builtin.copy:
+       src: "{{ root_playbook_dir }}/etc/hostapd/CaptivePortalStarter.conf"
+       dest: /etc/hostapd/CaptivePortalStarter.conf
+       owner: root
+       group: root
+       mode: 0744
+     tags: hotspot
+
+   - name: Copy /etc/default/hostapd file
+     copy:
+       src: "{{ root_playbook_dir }}/etc/default/hostapd"
+       dest: /etc/default/hostapd
+       owner: root
+       group: root
+       mode: 0755
+     tags: hotspot
+
+   - name: unmask hostapd
+     command: systemctl unmask hostapd.service
+     tags: hotspot
+
+   - name: Copy /run/systemd/generator.late file #Likely needs updates if I change interfaces
+     ansible.builtin.copy:
+       src: "{{ root_playbook_dir }}/etc/init.d/hostapd"
+       dest: /etc/init.d/hostapd
+       owner: root
+       group: root
+       mode: 0755
+     tags: hostapd
+
+   - name: unmask hostapd
+     command: systemctl unmask hostapd.service
+     tags: hotspot
+
+   - name: enable hostapd (so it launches afterboot)
+     command: update-rc.d hostapd enable
+     tags: base
+
+   - name: Copy the /etc/dhcpcd.conf file which makes sure wlan0 has a static ip
+     copy:
+       src: "{{ root_playbook_dir }}/etc/dhcpcd.conf"
+       dest: /etc/dhcpcd.conf
+       owner: root
+       group: netdev
+       mode: 0664
+     tags: 
+     - os_config_files
+     - streamer

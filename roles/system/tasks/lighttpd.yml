@@ -1,0 +1,42 @@
+---
+   - name: adding existing user pi to groups www-data
+     user:
+       name: pi
+       groups: www-data
+       append: yes
+     tags: 
+     - web
+
+   - name: Install lighttpd 
+     apt:
+       name: lighttpd
+       state: present
+       update_cache: true
+     tags: 
+     - streamer
+     - KarehaDiscussionBoard
+
+   - name: Create /var/www/html directory
+     file: path=/var/www/html state=directory mode=0755 owner=www-data group=www-data
+     tags: 
+       - LearnLinuxNetworkingHacking
+
+   - name: chmoding /var/www/html/
+     file:
+       path: /var/www/html/
+       owner: www-data
+       group: www-data
+       mode: 0755
+       recurse: yes
+     tags: web
+
+   - name: enable lighttpd access logging 
+     command: lighttpd-enable-mod accesslog
+     tags: os_config_files
+
+   - name: Copy lighttpd configuration files over to target (enables SSL & error page redirects)
+     ansible.posix.synchronize:
+       src: "{{ root_playbook_dir }}/etc/lighttpd/"
+       dest:  /etc/lighttpd/
+       recursive: yes
+     tags: web

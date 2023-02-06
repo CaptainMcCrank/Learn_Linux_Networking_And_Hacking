@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <title>MacTutorial</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="" />
+    <style>
+@import "https://fonts.googleapis.com/css2?family=Inconsolata&display=swap";:root{--cursor-visibility:hidden}html,body{width:100%;height:100%;overflow:auto;font-family:inconsolata,monospace;font-size:4vmin;line-height:4.1vmin;font-weight:400}body{margin:0;display:flex;flex-direction:row;justify-content:center;align-items:center}#content{min-width:82vmin;min-height:82vmin}::-webkit-scrollbar{width:10px}::-webkit-scrollbar-track{border-radius:10px;box-shadow:inset 0 0 1px white}::-webkit-scrollbar-thumb{border-radius:10px;box-shadow:0 0 0 1px white}.cursor,#activity-title:after,#activity-content:after,#cd:after,#whoami:after,#cat:after,#tree:after{visibility:var(--cursor-visibility);content:"|";overflow:hidden;color:#fff;animation:blink 500ms linear infinite alternate}@keyframes blink{0%{opacity:0}100%{opacity:1}}@media only screen and (min-width:768px){body{font-size:2.5vmin;line-height:2.6vmin}#content{min-width:60vmin}}:root{--cursor-visibility:hidden}body{align-items:unset;overflow-y:scroll}#content{max-width:80vmin}pre{overflow-x:scroll;white-space:pre}@keyframes blink{0%{opacity:0}100%{opacity:1}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+
+
+body{background:#1b1d1e}body #terminal{color:#BBBBBB}body #user{color:#23E298}body #dir{color:#D08010}body .Typewriter__cursor{color:#BBBBBB}a{color:#BBBBBB}
+
+        
+.navFull {
+    background-color: #353535;
+    font-family: "Courier New";
+    font-size: 17px;
+    display: inline;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    padding-top: 5px;
+    padding: 10px;
+    padding-bottom: 0px;
+}
+
+.navCredits {
+    float: right;
+    padding-right: 18px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+}
+
+#content::after {
+    content: "\a\a";
+    white-space: pre;
+}
+        
+        
+</style>
+
+
+
+</head><body><div id="content">
+    
+    
+    
+
+
+    <span id="activity-title"></span> <br>
+ <span id="activity-content"></span> <br>
+
+<script type="text/javascript">
+    async function typewriter(text, elementId, waitAfter) {
+        var n = 0,
+            isTag = false
+        addText = "";
+        const el = document.getElementById(elementId);
+
+        const wait = () => new Promise(r => setTimeout(r, waitAfter));
+        const nowait = () => new Promise(r => r());
+
+        const render = () => el.innerHTML = (text.slice(0, n + 1) + addText);
+
+        const cursor = document.createElement('span');
+        cursor.id = "blink";
+
+        el.style.setProperty("--cursor-visibility", "visible");
+        while (n < text.length) {
+            if (text.charAt(n + 1) === "<") isTag = true;
+            if (text.charAt(n + 1) === ">") isTag = false;
+
+            if (isTag) {
+                n++;
+                continue;
+            }
+
+            requestAnimationFrame(render);
+
+            if (waitAfter === 0) {
+                await nowait();
+            } else {
+                await wait();
+            }
+
+            n++;
+        }
+        el.style.setProperty("--cursor-visibility", "collapse");
+    }
+
+    function parseDelay(d) {
+        const parsed = parseInt(d, 10);
+        if (isNaN(parsed)) return 0;
+        return parsed;
+    }
+
+    const titleDelay = parseDelay("0"),
+        contentDelay = parseDelay("0");
+    const typeeffetct = async () => {
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003ch1 id=\u0027title\u0027\u003eMacTutorial\u003c\/h1\u003e\u003c\/span\u003e", "activity-title", titleDelay);
+        await typewriter("\u003cspan id=\u0027terminal\u0027\u003e\u003cp\u003eIn this lab, we will establish some fundamental concepts that are important for working with computers:\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003eBasic definition of a computer\u003c\/li\u003e\n\u003cli\u003eIntroduction of the concept of an \u003cstrong\u003eOperating System\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003eIntroduction of the \u003cstrong\u003eDock application\u003c\/strong\u003e in MacOS\u003c\/li\u003e\n\u003cli\u003eIntroduction of the \u003cstrong\u003eFinder application\u003c\/strong\u003e in MacOS\u003c\/li\u003e\n\u003cli\u003eIntroduction of the concept of a \u003cstrong\u003eFile System\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003eIntroduction of the concept of a \u003cstrong\u003eCommand Interpreter\u003c\/strong\u003e\u003c\/li\u003e\n\u003cli\u003eIntroduction of the \u003cstrong\u003eTerminal application\u003c\/strong\u003e in MacOS\u003c\/li\u003e\n\u003cli\u003eIntroduction of basic command line navigation in MacOS using the commands pwd, ls, man and cd\u003c\/li\u003e\n\u003cli\u003eIntroduction of how to list the contents of a working direcotry.\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003eThis lesson is meant to introducre the Finder and the Terminal, which will be key tools you will use in your Security education.\u003c\/p\u003e\n\u003cp\u003eTake a moment and describe what a computer is.  Write your explanation down.  After you are done, continue reading this lab and compare it with the definition I provide.  When you do, compare the differences between our descriptions.  This will help you understand where you need to grow in your understanding of computing fundamentals.\u003c\/p\u003e\n\u003ch1 id=\u0022what-is-a-computer\u0022\u003eWhat is a computer?\u003c\/h1\u003e\n\u003cp\u003eA computer is \u003cstrong\u003ehardware\u003c\/strong\u003e that is able to run \u003cstrong\u003esoftware\u003c\/strong\u003e.\u003c\/p\u003e\n\u003cp\u003eA computer has an \u003cstrong\u003eoperating system\u003c\/strong\u003e, which is responsible for managing the interactions between software with the computer\u0026rsquo;s hardware.\u003c\/p\u003e\n\u003ch1 id=\u0022what-is-an-operating-system\u0022\u003eWhat is an Operating System?\u003c\/h1\u003e\n\u003cp\u003eMicrosoft Windows, MacOS, iOS, Android and Linux are examples of \u0026ldquo;\u003cstrong\u003eOperating Systems\u003c\/strong\u003e.\u0026rdquo;\u003c\/p\u003e\n\u003cp\u003eYou can interact with a computer through a graphic user interface (\u003cstrong\u003eGUI\u003c\/strong\u003e) or a \u003cstrong\u003eCommand Interpreter\u003c\/strong\u003e.  Microsoft Windows, MacOS, iOS and Android are operating systems with a graphic user interface.  On Windows, you can run the applications named  \u0026ldquo;Powershell\u0026rdquo; or \u0026ldquo;cmd.exe\u0026rdquo; as a command interpreter.  On MacOS, the Terminal is the command interpreter.   Android and iOS don\u0026rsquo;t  have a command line available by default- most users only interact with Android \u0026amp; iOS via the GUI.\u003c\/p\u003e\n\u003cp\u003eYou can explore the file system on a mac by opening an app called the \u0026ldquo;\u003cstrong\u003eFinder\u003c\/strong\u003e.\u0026rdquo;\u003c\/p\u003e\n\u003ch2 id=\u0022the-macos-dock\u0022\u003eThe MacOS Dock\u003c\/h2\u003e\n\u003cp\u003eThere is a display element called the \u0026ldquo;\u003cstrong\u003eDock\u003c\/strong\u003e\u0026rdquo; at the bottom of the Mac\u0026rsquo;s desktop:\n\u003cimg src=\u0022\/dock.png\u0022 alt=\u0022alt text\u0022 title=\u0022Dock\u0022\u003e\u003c\/p\u003e\n\u003ch2 id=\u0022the-macos-finder\u0022\u003eThe MacOS Finder\u003c\/h2\u003e\n\u003cp\u003eOn a Mac, the Finder is in the dock by default and has an icon that looks like this:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/finder_dock.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder_Dock\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eDouble click on the Finder icon to launch the finder.  The default finder view hides some valuable information.  In it\u0026rsquo;s initial presentation, it likely shows \u0026ldquo;recent files\u0026rdquo; like this:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/finder_default_view.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder Default View\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe default view of the finder prevents you from seeing the file system structure clearly.  I will make some changes to the finder settings which will make it easier to see the filesystem.  For starters, let\u0026rsquo;s change the view from Icons to List.  The menu where you can change the view is located here:\u003c\/p\u003e\n\u003ch3 id=\u0022changing-the-finder-view-to-list-mode-and-unhiding-the-hard-drive\u0022\u003eChanging the finder view to list mode and unhiding the hard drive.\u003c\/h3\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/finder_default_view_settings.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder Settings\u0022\u003e\nIf your window is compressed, the view menu looks like this:\n\u003cimg src=\u0022imgs\/compressed.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder compressed view\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eWe need to change the view to List view by clicking on this icon:\n\u003cimg src=\u0022imgs\/finder_change_to_list_view.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder compressed view\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe List view presents slightly differently if your finder is compressed:\n\u003cimg src=\u0022imgs\/compressed_list.png\u0022 alt=\u0022alt text\u0022 title=\u0022Compressed List\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eNext, we need to unhide the hard drive via the finder settings.  You can open the finder settings by clicking finder at the top of the menu bar, and then selecting settings:\n\u003cimg src=\u0022imgs\/finder_settings.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder settings\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe settings menu will open.  Across the top, it lists \u0026ldquo;General\u0026rdquo;, \u0026ldquo;Tags\u0026rdquo;, \u0026ldquo;Sidebar\u0026rdquo; and \u0026ldquo;Advanced\u0026rdquo;.  Click on Sidebar, and the menu will look like this:\n\u003cimg src=\u0022imgs\/finder_settings_sidebar.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder settings Sidebar\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eIn the locations setion, make sure that \u0026ldquo;Hard Disks\u0026rdquo; is changed to have a blue checkmark.  Close the menu.  When you look at the finder, you\u0026rsquo;ll now see a location labeled \u0026ldquo;MacOS\u0026rdquo; (the name may be different if you customized it during mac setup)\n\u003cimg src=\u0022imgs\/locations.png\u0022 alt=\u0022alt text\u0022 title=\u0022Finder settings Sidebar\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eWhen you click on MacOS, you\u0026rsquo;ll see something similar to this screenshot, which shows you a view of the \/ directory of the \u003cstrong\u003eFile System\u003c\/strong\u003e:\n\u003cimg src=\u0022imgs\/macos.png\u0022 alt=\u0022alt text\u0022 title=\u0022MacOS View\u0022\u003e\u003c\/p\u003e\n\u003ch1 id=\u0022what-is-a-file-system\u0022\u003eWhat is a File System?\u003c\/h1\u003e\n\u003cp\u003eA computer has a \u003cstrong\u003efile system\u003c\/strong\u003e, which is a hierarchical storage structure of files, directories \u0026amp; executable programs.   If you use a word processor to create documents, you are storing files in locations on the computer somewhere within the file system.  You are launching the wordprocessor application from somewhere within the file system.  You can think of the file system like an organized filing cabinet filled with folders that have documents in them.\u003c\/p\u003e\n\u003cp\u003eOn Linux computers and MacOS, there is a directory called \/ and it pronounced \u0026ldquo;root.\u0026rdquo;  Everything on the file system is stored somewhere under \/.\u003c\/p\u003e\n\u003cp\u003eThe MacOS view in the finder represents the \/ folder of the system.  If you open the drive, you should see something like the following:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/macos.png\u0022 alt=\u0022alt text\u0022 title=\u0022MacOS View\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThis view of the root filesystem is incomplete, however.  As you experieced earlier when we changed the finder settings to show the hard disk, there are  default settings of the Finder which hide aspects of the system.  Graphic User Interfaces designed to keep beginners from accidentally damaging the system in it\u0026rsquo;s default state.  As a result, they\u0026rsquo;re not always the best tool for experts to use.  When we\u0026rsquo;re doing security work, we\u0026rsquo;re going to spend a lot of time using a Command Interpeter.\u003c\/p\u003e\n\u003ch1 id=\u0022what-is-a-command-interpreter\u0022\u003eWhat is a Command Interpreter?\u003c\/h1\u003e\n\u003cp\u003eWikipedia defines a Command Interpreter as \u0026ldquo;a blanket term for a certain class of programs designed to read lines of text entered by a user, thus implementing a command-line interface.\u0026rdquo;  It\u0026rsquo;s a simple tool that accepts commands typed by the user, performs operations and presents results of those operations.\u003c\/p\u003e\n\u003ch1 id=\u0022what-is-spotlight-search\u0022\u003eWhat is Spotlight Search?\u003c\/h1\u003e\n\u003cp\u003eSpotlight can help you quickly find apps, documents, emails, and other items on your Mac.  Apple has an \u003ca href=\u0022https:\/\/support.apple.com\/guide\/mac-help\/search-with-spotlight-mchlp1008\/mac\u0022\u003eApple support page\u003c\/a\u003e that provides more detail on the features of Spotlight Search.  We can use spotlight search to quickly launch applications if we know their name.\u003c\/p\u003e\n\u003cp\u003eOn your Mac, if you press the \u0026ldquo;Command\u0026rdquo; and \u0026ldquo;Space\u0026rdquo; keys simultaneously, Spotlight Search will show in the middle of your screen.\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/SpotlightSearch.png\u0022 alt=\u0022alt text\u0022 title=\u0022MacOS Spotlight search\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eYou can type \u0026ldquo;terminal\u0026rdquo; to launch Mac\u0026rsquo;s Command Interpreter.\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/SpotlightSearchTerminal.png\u0022 alt=\u0022alt text\u0022 title=\u0022MacOS Spotlight launching the Terminal\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe default view of the terminal is something similar to this:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/TerminalDefault.png\u0022 alt=\u0022alt text\u0022 title=\u0022Terminal Default\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eOn the left side of the terminal, you\u0026rsquo;ll see the username of the account you\u0026rsquo;re logged into, then an @ sign and finally the hostname of your mac.  In my case, I\u0026rsquo;m logged into an account called \u0026ldquo;Test\u0026rdquo; and the computer I\u0026rsquo;m logged into is a macbook air with the hostname of Patricks-Air-5.  There\u0026rsquo;s then a \u0026ldquo;~\u0026rdquo; (pronounced Til-duh), and then a percentage sign.  The ~ is a signal that tells you you\u0026rsquo;re in your account\u0026rsquo;s home directory, and the % is a signal that the command interpreter you are running is something called zsh (or Z Shell).  There are many different command interpreters you could run, each with subtle differences optimized for different kinds of use cases.  ZSH has some autocomplete and navigation advantages which make it preferred by some advanced users.\u003c\/p\u003e\n\u003cp\u003eTry typing your first command in the terminal:\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003epwd\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eNote that the command is case sensitive- you have to type it in all lower case.\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/TerminalPWD.png\u0022 alt=\u0022alt text\u0022 title=\u0022Terminal Default\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe output was \u003ccode\u003e\/Users\/test\u003c\/code\u003e.  That probably feels anticlimactic.  What does this command do?  What does \/Users\/test even mean?  We have to figure it out.  Luckily, there\u0026rsquo;s a hand tool called \u0026ldquo;man\u0026rdquo; which will give us a manual for a tool if it\u0026rsquo;s been installed on the system.  Let\u0026rsquo;s type\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003eman pwd\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003eto see what PWD does.\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/TerminalManPWD.png\u0022 alt=\u0022alt text\u0022 title=\u0022Terminal Default\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eIn the description, we see that the PWD utility writes the absolute pathname of the current working directory to the standard output.  If you hit the space bar, the man page skips down a full page.  You can hit the up and down arrows to move through the file one line at a time.  You can it the \u0026ldquo;b\u0026rdquo; key to go back and the \u0026ldquo;q\u0026rdquo; key to quit out of the man application.\u003c\/p\u003e\n\u003cp\u003eWe learned that the pwd command expresses where you are currently located in the \u003cem\u003e\u003cstrong\u003eFile System\u003c\/strong\u003e\u003c\/em\u003e.\u003c\/p\u003e\n\u003cp\u003eSo if the output of pwd is \u003ccode\u003e\/Users\/test\u003c\/code\u003e, that tells us we are currently in the directory \u0026rsquo;test\u0026rsquo; which is nested within another directory called \u0026lsquo;Users\u0026rsquo; which is also under a directory named \u0026lsquo;\/\u0026rsquo;.  Take a note of this directory- we\u0026rsquo;ll come back to it later.\u003c\/p\u003e\n\u003cp\u003eLet\u0026rsquo;s try a new command called \u0026ldquo;ls\u0026rdquo; :\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003els\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/TerminalLS.png\u0022 alt=\u0022alt text\u0022 title=\u0022Terminal Default\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eIt reported back 8 things.  Let\u0026rsquo;s see what the ls command does with the man tool:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/TerminalMANLS.png\u0022 alt=\u0022alt text\u0022 title=\u0022Terminal Default\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eAccording to the man page, ls lists the contents of a directory.  Notice at the bottom of the page, there is a \u003ccode\u003e:\u003c\/code\u003e.  If you hit the forwardslash key \u003ccode\u003e\/\u003c\/code\u003e, you can then type a case sensitive search term.  Let\u0026rsquo;s search for the term \u003ccode\u003eEXAMPLES\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/TerminalManSearchEXAMPLES.png\u0022 alt=\u0022alt text\u0022 title=\u0022Terminal Man LS search exmaple\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eHit \u003ccode\u003ereturn\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/searchHighlight.png\u0022 alt=\u0022alt text\u0022 title=\u0022Search higlighting exmaple\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe man page will jump to any sections that match the text.  As you can see, the all uppercase word \u0026ldquo;EXAMPLES\u0026rdquo; is highlighted at the top of the page.  If there is more than one instance of the word \u0026ldquo;EXAMPLES, you can hit the \u003ccode\u003en\u003c\/code\u003e key and man will jump through the document to the next instance.  If there are no further instances, the semicolon at the bottom of the page will report Pattern not found.\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/patternnotfound.png\u0022 alt=\u0022alt text\u0022 title=\u0022Pattern not found\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe Examples section of man pages is very helpful.  It will often show additional \u0026ldquo;command line options\u0026rdquo; which will produce more informative results.  The man example suggests \u003ccode\u003els -lioF\u003c\/code\u003e.   Let\u0026rsquo;s run this command and see it\u0026rsquo;s output:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/lsliof.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -liof\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eThe second column of results gives us some intersting information.  The first thing to note is the \u0026rsquo;d\u0026rsquo; at the beginning of the column.  This tells you that the object that\u0026rsquo;s listed in that row is a Directory.  You can also infer this from the forward slash \u003ccode\u003e\/\u003c\/code\u003e at the end of each entry.\u003c\/p\u003e\n\u003cp\u003eThe ls command has many command line options.  Let\u0026rsquo;s try adding a few extra letters to the command: \u003ccode\u003els -alhioF\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/ls_alhioF.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -liof\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eYou\u0026rsquo;ll see the output is different.  You\u0026rsquo;ll also notice that there are now new entries which start with a \u0026ldquo;.\u0026rdquo;!  In Unix and Linux systems, you can hide filesystem objects from the standard response by prepending them with a \u0026ldquo;.\u0026rdquo;.  In the command we used, we included the command line option of -a, which tells ls to include entires that start with a \u0026ldquo;.\u0026rdquo; in the response.\u003c\/p\u003e\n\u003cp\u003eIn addition, some of the files don\u0026rsquo;t have the \/ at the end of the name.  For those instances, if you look at the second column, you\u0026rsquo;ll see that those entries also don\u0026rsquo;t have the \u0026ldquo;d\u0026rdquo; value.  This means that these are files rather than directories.  We now have a better way to explore the file system.  The alhioF command line arguments are a lot to remember- so I try to use the simpler \u003ccode\u003els -alh\u003c\/code\u003e command.\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/lsalh.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -alh\u0022\u003e\u003c\/p\u003e\n\u003cul\u003e\n\u003cli\u003e-a returns files hidden with a . at the beginning of the name\u003c\/li\u003e\n\u003cli\u003e-l returns \u0026ldquo;The Long Format\u0026rdquo; of the entries for each file (try searching the man page of LS for \u0026ldquo;The Long Format\u0026rdquo; to learn more)\u003c\/li\u003e\n\u003cli\u003e-h returns the size of each file in a human readable format (e.g 512B vs 6.0K is telling you the size of the file in bytes or Kilobytes)\u003c\/li\u003e\n\u003c\/ul\u003e\n\u003cp\u003eLet\u0026rsquo;s circle back to the root directory we explored using the Finder.  We will use the \u003ccode\u003ecd\u003c\/code\u003e command to change into the root directory:\u003c\/p\u003e\n\u003cp\u003e\u003ccode\u003ecd \/\u003c\/code\u003e\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/cdroot.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -alh\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eNotice that the command line changed. The \u003ccode\u003e~\u003c\/code\u003e was replaced with a \u003ccode\u003e\/\u003c\/code\u003e after the command ran.  We asked the interpreter to change to the \/ directory.  You can change into a directory by typing \u003ccode\u003ecd\u003c\/code\u003e and then providing a full path to a location.\u003c\/p\u003e\n\u003cp\u003eLet\u0026rsquo;s now run an ls -alh command from the \/ directory:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/rootlsalh.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -alh\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eDo you remember what directory we were in when you ran the pwd command?  Let\u0026rsquo;s add that to the cd command and run ls again:\u003c\/p\u003e\n\u003cp\u003e\u003cimg src=\u0022imgs\/comparerootandtest.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -alh\u0022\u003e\u003c\/p\u003e\n\u003cp\u003eAs you can see, the output of ls changes to reflect whatever directory you are in.  You can use the cd command to change directories.  Let\u0026rsquo;s get ourselves back to the \/ directory with \u003ccode\u003ecd \/\u003c\/code\u003e and compare what root looks like in Finder versus the terminal.\u003c\/p\u003e\n\u003cp\u003eThe root directory has more files than we saw in the finder.  Let\u0026rsquo;s compare:\u003c\/p\u003e\n\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth style=\u0022text-align:center\u0022\u003els -alh root\u003c\/th\u003e\n\u003cth style=\u0022text-align:center\u0022\u003eFinder root\u003c\/th\u003e\n\u003c\/tr\u003e\n\u003c\/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003e\u003cimg src=\u0022imgs\/rootlsalhmarkup.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -alh\u0022\u003e\u003c\/td\u003e\n\u003ctd style=\u0022text-align:center\u0022\u003e\u003cimg src=\u0022imgs\/macos.png\u0022 alt=\u0022alt text\u0022 title=\u0022ls -alh\u0022\u003e\u003c\/td\u003e\n\u003c\/tr\u003e\n\u003c\/tbody\u003e\n\u003c\/table\u003e\n\u003cp\u003eAs you can see- the ls output includes Applications, Library, System and Users.  But there are many more files.  You don\u0026rsquo;t see the same set of files in the finder.  This should demonstrate why it is valuable to learn how to work with the command line.  As we work more with the machine, we will explore many commands.  You can find a helpful cheat sheet of macos terminal commands \u003ca href=\u0022https:\/\/github.com\/0nn0\/terminal-mac-cheatsheet\u0022\u003ehere\u003c\/a\u003e.\u003c\/p\u003e\n\u003cp\u003e\u003ca href=\u0022https:\/\/support.apple.com\/guide\/terminal\/welcome\/mac\u0022\u003eApple userguide for Terminal\u003c\/a\u003e\u003c\/p\u003e\n\u003c\/span\u003e", "activity-content", contentDelay);
+        return;
+    }
+
+    typeeffetct()
+</script>
+
+        </div>
+        
+        <span class="navFull">
+        
+    
+    
+
+    
+        
+
+<span>
+    <a href="/">Home</a>
+    <span>&#8192;|&#8192;</span>
+    <a href="./..">/Tutorial/</a>
+</span>
+
+    
+
+        
+        <span class="navCredits">
+            Hugo theme created by
+            <a href="https://github.com/Yukuro/hugo-theme-shell" target="_blank" rel="noopener">Yukuro</a>
+        </span>
+</span>
+
+        
+         
+    </body>
+</html>

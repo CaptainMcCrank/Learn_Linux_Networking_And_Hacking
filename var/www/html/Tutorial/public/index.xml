@@ -6,6 +6,26 @@
     <description>Recent content on Shell</description>
     <generator>Hugo -- gohugo.io</generator><atom:link href="http://10.10.10.1/Tutorial/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>WifiBruteForceing</title>
+      <link>http://10.10.10.1/Tutorial/wifibruteforceing/</link>
+      <pubDate>Sun, 05 Feb 2023 18:41:51 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/wifibruteforceing/</guid>
+      <description>In this lab, we will brute force the wifi credential of the hotspot.
+- [ ] Find the wifi network - [ ] Manually guess some passwords - [ ] Find a dictionary - [ ] Find a command to use to connect to wifi networks - [ ] Figure out how to push the passwords from the dictionary file into the wifi connection command - [ ] Launch the attack and Discover the credential BEFORE YOU START Make sure you have downloaded and installed the firmware onto an SDCard and installed the SDCard into your pi .</description>
+    </item>
+    
+    <item>
+      <title>MacTutorial</title>
+      <link>http://10.10.10.1/Tutorial/mactutorial/</link>
+      <pubDate>Sun, 05 Feb 2023 18:41:23 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/mactutorial/</guid>
+      <description>In this lab, we will establish some fundamental concepts that are important for working with computers:
+Basic definition of a computer Introduction of the concept of an Operating System Introduction of the Dock application in MacOS Introduction of the Finder application in MacOS Introduction of the concept of a File System Introduction of the concept of a Command Interpreter Introduction of the Terminal application in MacOS Introduction of basic command line navigation in MacOS using the commands pwd, ls, man and cd Introduction of how to list the contents of a working direcotry.</description>
+    </item>
+    
+    <item>
       <title>Defacing</title>
       <link>http://10.10.10.1/Tutorial/defacing/</link>
       <pubDate>Mon, 02 Jan 2023 13:06:22 -0800</pubDate>

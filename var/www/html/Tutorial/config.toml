@@ -78,9 +78,12 @@ ignoreErrors = ["error-remote-getjson"]
   folderName = "my_activity"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
+    ["Getting Famliar with MacOS", "MacTutorial.md"],
+    ["Bruteforcing the wifi network password", "WifiBruteForceing.md"],
     ["Scanning basics", "scanning.md"],
     ["Gaining access basics", "access.md"],
     ["Web page basics", "defacing.md"],
+    ["Challenges", "Challenges.md"],
   ]
 
 [module]

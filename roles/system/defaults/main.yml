@@ -1,0 +1,16 @@
+---
+py_version: 3.8.0
+threads: 4
+temp_folder: /tmp
+# ***BE SURE TO INCREMENT THE FOLLOWING 3 VARIABLES IF YOU ARE UPGRADING THE HOTSPOT
+root_playbook_dir: /home/pi/Playbooks/Learn_Linux_Networking_And_Hacking
+os_info_path: /etc/os-release
+int_count: "{{ ansible_interfaces | count }}"
+docker_host: "{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }}"
+new_password: "Passw@rd"
+wifi_password: "Password1" #This is not correctly implemented yet 1_29_23
+version:
+  Build: LEARN_LINUX_NETWORKING_AND_HACKING
+  BuildDate: "01_29_23"
+  Ver: 0.1
+  Author: p@mccannabanana.com

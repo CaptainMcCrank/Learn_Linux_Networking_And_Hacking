@@ -1,0 +1,22 @@
+---
+   - name: Install dnsmasq
+     apt:
+       name: dnsmasq
+       state: present
+       update_cache: true
+
+   - name: Copy /etc/dnsmasq.conf configuration that is used for DHCP assignment #Likely needs updates if I change interfaces
+     copy:
+       src: "{{ root_playbook_dir }}/etc/dnsmasq.conf"
+       dest: /etc/dnsmasq.conf
+       owner: root
+       group: root
+       mode: 0744
+     tags: os_config_files
+
+   - name: enable dnsmasq
+     command: systemctl enable dnsmasq
+     tags: 
+     - Hotspot
+
+     
