@@ -8,7 +8,7 @@ os_info_path: /etc/os-release
 int_count: "{{ ansible_interfaces | count }}"
 docker_host: "{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }}"
 new_password: "Passw@rd"
-wifi_password: "Password1" #This is not correctly implemented yet 1_29_23
+wifi_password: "dragon" #This is not correctly implemented yet 1_29_23
 version:
   Build: LEARN_LINUX_NETWORKING_AND_HACKING
   BuildDate: "01_29_23"
