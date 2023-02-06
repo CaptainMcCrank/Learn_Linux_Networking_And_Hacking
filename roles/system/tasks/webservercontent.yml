@@ -45,13 +45,33 @@
        - "/var/www/html/Tutorial/scanning/index.html"
        - "/var/www/html/Tutorial/access/index.html"
        - "/var/www/html/Tutorial/defacing/index.html"
+       - "/var/www/html/Tutorial/wifibruteforceing/index.html"
+       - "/var/www/html/Tutorial/mactutorial/index.html"
        - "/var/www/html/Tutorial/index.html"
 
-   - name: Edit the index.html file with the build version
+   - name: Edit the index.html file with the 
      lineinfile:
        path: /var/www/html/index.html
        insertbefore: </body>
        line: "<li>Build Version: {{ version['Ver'] }}</a></li>"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Increment /var/www/html/index.html contents to reflect build Name
+     lineinfile:
+       path: /var/www/html/index.html
+       insertbefore: </body>
+       line: "<li>Build Name: {{ version['Build'] }}</a></li>"
+     tags: 
+     - os_config_files
+     - DeviceRegistration
+
+   - name: Increment /var/www/html/index.html contents to reflect build Date
+     lineinfile:
+       path: /var/www/html/index.html
+       insertbefore: </body>
+       line: "<li>Build Date: {{ version['BuildDate'] }}</a></li>"
      tags: 
      - os_config_files
      - DeviceRegistration
