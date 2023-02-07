@@ -1,4 +1,4 @@
-baseURL = "https://10.10.10.1/"
+baseURL = "https://www.example.com/"
 title = "Shell"
 # author = "Yukuro"
 # prevent build failures when using Hugo's Instagram shortcode due to deprecated Instagram API.
@@ -36,10 +36,10 @@ ignoreErrors = ["error-remote-getjson"]
   # ./[folderName]/
   # ...
   # Note: result of the tree command
-  userName = "pi"
-  pcName = "jinx.local"
+  userName = "jane"
+  pcName = "laptop"
   workDir = "mydir"
-  profile = "instructions.txt"
+  profile = "profile.txt"
 
   # Note: speed at which text is displayed on the terminal
   # Note: if set to 0, typing animation will be disabled
@@ -63,9 +63,8 @@ ignoreErrors = ["error-remote-getjson"]
   # activityDelay = 5 : deprecated
 
   description = """
-🧨 Scan me for services
-🧨 Gain access to the system
-🧨 Backup the web page and replace it with your own!
+  Hi I am Jane Doe!
+  Nice to meet you!
   
   """
 
@@ -78,9 +77,11 @@ ignoreErrors = ["error-remote-getjson"]
   folderName = "my_activity"
   # Note: ["ACTIVITY", "URL or PATH TO YOUR MARKDOWN FILE"]
   files = [ 
-    ["Scanning basics", "scanning.md"],
-    ["Gaining access basics", "access.md"],
-    ["Web page basics", "defacing.md"],
+    ["C/C++", "https://www.example.com/"],
+    ["Python", "https://www.example.com/"],
+    ["Go", "https://golang.org/"],
+    ["Hugo", "/post/some-activity.md"],
+    ["Docker", "/post/some-activity.md"],
   ]
 
 [module]
