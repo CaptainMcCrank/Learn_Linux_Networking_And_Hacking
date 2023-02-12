@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hack-Me Access Point">
+    
+    <link rel="shortcut icon" href="http://10.10.10.1/Tutorial/favicon.ico">
+    
+    <link rel="stylesheet" href="/Tutorial/css/style.min.css">
+
+    <link rel="canonical" href="http://10.10.10.1/Tutorial/tutorial-learning-how-to-get-around-on-a-mac/" />
+    <title>Tutorial: Learning how to get around on a mac</title>
+</head>
+<body><header id="banner">
+    <h2><a href="http://10.10.10.1/Tutorial">Hack-me-access-point-website</a></h2>
+    <nav>
+        <ul>
+            <li>
+                <a href="/Tutorial/" title="posts">posts</a>
+            </li><li>
+                <a href="/Tutorial/about/" title="about">about</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main id="content">
+<article>
+    <header id="post-header">
+        <h1>Tutorial: Learning how to get around on a mac</h1>
+        <div>
+                <time>February 10, 2023</time>
+            </div>
+    </header><p>In this lab, we will establish some fundamental concepts that are important for working with computers:</p>
+<ul>
+<li>Basic definition of a computer</li>
+<li>Introduction of the concept of an <strong>Operating System</strong></li>
+<li>Introduction of the <strong>Dock application</strong> in MacOS</li>
+<li>Introduction of the <strong>Finder application</strong> in MacOS</li>
+<li>Introduction of the concept of a <strong>File System</strong></li>
+<li>Introduction of the concept of a <strong>Command Interpreter</strong></li>
+<li>Introduction of the <strong>Terminal application</strong> in MacOS</li>
+<li>Introduction of basic command line navigation in MacOS using the commands pwd, ls, man and cd</li>
+<li>Introduction of how to list the contents of a working direcotry.</li>
+</ul>
+<p>This lesson is meant to introducre the Finder and the Terminal, which will be key tools you will use in your Security education.</p>
+<p>Take a moment and describe what a computer is.  Write your explanation down.  After you are done, continue reading this lab and compare it with the definition I provide.  When you do, compare the differences between our descriptions.  This will help you understand where you need to grow in your understanding of computing fundamentals.</p>
+<h1 id="what-is-a-computer">What is a computer?</h1>
+<p>A computer is <strong>hardware</strong> that is able to run <strong>software</strong>.</p>
+<p>A computer has an <strong>operating system</strong>, which is responsible for managing the interactions between software with the computer&rsquo;s hardware.</p>
+<h1 id="what-is-an-operating-system">What is an Operating System?</h1>
+<p>Microsoft Windows, MacOS, iOS, Android and Linux are examples of &ldquo;<strong>Operating Systems</strong>.&rdquo;</p>
+<p>You can interact with a computer through a graphic user interface (<strong>GUI</strong>) or a <strong>Command Interpreter</strong>.  Microsoft Windows, MacOS, iOS and Android are operating systems with a graphic user interface.  On Windows, you can run the applications named  &ldquo;Powershell&rdquo; or &ldquo;cmd.exe&rdquo; as a command interpreter.  On MacOS, the Terminal is the command interpreter.   Android and iOS don&rsquo;t  have a command line available by default- most users only interact with Android &amp; iOS via the GUI.</p>
+<p>You can explore the file system on a mac by opening an app called the &ldquo;<strong>Finder</strong>.&rdquo;</p>
+<h2 id="the-macos-dock">The MacOS Dock</h2>
+<p>There is a display element called the &ldquo;<strong>Dock</strong>&rdquo; at the bottom of the Mac&rsquo;s desktop:
+<img src="../dockLarge.png" alt="alt text" title="Dock"></p>
+<h2 id="the-macos-finder">The MacOS Finder</h2>
+<p>On a Mac, the Finder is in the dock by default and has an icon that looks like this:</p>
+<p><img src="../finder_dockLarge.png" alt="alt text" title="Finder_Dock"></p>
+<p>Double click on the Finder icon to launch the finder.  The default finder view hides some valuable information.  In it&rsquo;s initial presentation, it likely shows &ldquo;recent files&rdquo; like this:</p>
+<p><img src="../finder_default_viewLarge.png" alt="alt text" title="Finder Default View"></p>
+<p>The default view of the finder prevents you from seeing the file system structure clearly.  I will make some changes to the finder settings which will make it easier to see the filesystem.  For starters, let&rsquo;s change the view from Icons to List.  The menu where you can change the view is located here:</p>
+<h3 id="changing-the-finder-view-to-list-mode-and-unhiding-the-hard-drive">Changing the finder view to list mode and unhiding the hard drive.</h3>
+<p><img src="../finder_default_view_settings_Small.png" alt="alt text" title="Finder Settings">
+If your window is compressed, the view menu looks like this:
+<img src="../compressed_Small.png" alt="alt text" title="Finder compressed view"></p>
+<p>We need to change the view to List view by clicking on this icon:
+<img src="../finder_change_to_list_view_Small.png" alt="alt text" title="Finder compressed view"></p>
+<p>The List view presents slightly differently if your finder is compressed:
+<img src="../compressed_list_Small.png" alt="alt text" title="Compressed List"></p>
+<p>Next, we need to unhide the hard drive via the finder settings.  You can open the finder settings by clicking finder at the top of the menu bar, and then selecting settings:
+<img src="../finder_settings_Small.png" alt="alt text" title="Finder settings"></p>
+<p>The settings menu will open.  Across the top, it lists &ldquo;General&rdquo;, &ldquo;Tags&rdquo;, &ldquo;Sidebar&rdquo; and &ldquo;Advanced&rdquo;.  Click on Sidebar, and the menu will look like this:
+<img src="../finder_settings_sidebar_Small.png" alt="alt text" title="Finder settings Sidebar"></p>
+<p>In the locations setion, make sure that &ldquo;Hard Disks&rdquo; is changed to have a blue checkmark.  Close the menu.  When you look at the finder, you&rsquo;ll now see a location labeled &ldquo;MacOS&rdquo; (the name may be different if you customized it during mac setup)
+<img src="../locations_Small.png" alt="alt text" title="Finder settings Sidebar"></p>
+<p>When you click on MacOS, you&rsquo;ll see something similar to this screenshot, which shows you a view of the / directory of the <strong>File System</strong>:
+<img src="../macos_Small.png" alt="alt text" title="MacOS View"></p>
+<h1 id="what-is-a-file-system">What is a File System?</h1>
+<p>A computer has a <strong>file system</strong>, which is a hierarchical storage structure of files, directories &amp; executable programs.   If you use a word processor to create documents, you are storing files in locations on the computer somewhere within the file system.  You are launching the wordprocessor application from somewhere within the file system.  You can think of the file system like an organized filing cabinet filled with folders that have documents in them.</p>
+<p>On Linux computers and MacOS, there is a directory called / and it pronounced &ldquo;root.&rdquo;  Everything on the file system is stored somewhere under /.</p>
+<p>The MacOS view in the finder represents the / folder of the system.  If you open the drive, you should see something like the following:</p>
+<p><img src="../macos_Small.png" alt="alt text" title="MacOS View"></p>
+<p>This view of the root filesystem is incomplete, however.  As you experieced earlier when we changed the finder settings to show the hard disk, there are  default settings of the Finder which hide aspects of the system.  Graphic User Interfaces designed to keep beginners from accidentally damaging the system in it&rsquo;s default state.  As a result, they&rsquo;re not always the best tool for experts to use.  When we&rsquo;re doing security work, we&rsquo;re going to spend a lot of time using a Command Interpeter.</p>
+<h1 id="what-is-a-command-interpreter">What is a Command Interpreter?</h1>
+<p>Wikipedia defines a Command Interpreter as &ldquo;a blanket term for a certain class of programs designed to read lines of text entered by a user, thus implementing a command-line interface.&rdquo;  It&rsquo;s a simple tool that accepts commands typed by the user, performs operations and presents results of those operations.</p>
+<h1 id="what-is-spotlight-search">What is Spotlight Search?</h1>
+<p>Spotlight can help you quickly find apps, documents, emails, and other items on your Mac.  Apple has an <a href="https://support.apple.com/guide/mac-help/search-with-spotlight-mchlp1008/mac">Apple support page</a> that provides more detail on the features of Spotlight Search.  We can use spotlight search to quickly launch applications if we know their name.</p>
+<p>On your Mac, if you press the &ldquo;Command&rdquo; and &ldquo;Space&rdquo; keys simultaneously, Spotlight Search will show in the middle of your screen.</p>
+<p><img src="../SpotlightSearch_Small.png" alt="alt text" title="MacOS Spotlight search"></p>
+<p>You can type &ldquo;terminal&rdquo; to launch Mac&rsquo;s Command Interpreter.</p>
+<p><img src="../SpotlightSearchTerminal_Small.png" alt="alt text" title="MacOS Spotlight launching the Terminal"></p>
+<p>The default view of the terminal is something similar to this:</p>
+<p><img src="../TerminalDefault_Small.png" alt="alt text" title="Terminal Default"></p>
+<p>On the left side of the terminal, you&rsquo;ll see the username of the account you&rsquo;re logged into, then an @ sign and finally the hostname of your mac.  In my case, I&rsquo;m logged into an account called &ldquo;Test&rdquo; and the computer I&rsquo;m logged into is a macbook air with the hostname of Patricks-Air-5.  There&rsquo;s then a &ldquo;~&rdquo; (pronounced Til-duh), and then a percentage sign.  The ~ is a signal that tells you you&rsquo;re in your account&rsquo;s home directory, and the % is a signal that the command interpreter you are running is something called zsh (or Z Shell).  There are many different command interpreters you could run, each with subtle differences optimized for different kinds of use cases.  ZSH has some autocomplete and navigation advantages which make it preferred by some advanced users.</p>
+<p>Try typing your first command in the terminal:</p>
+<p><code>pwd</code></p>
+<p>Note that the command is case sensitive- you have to type it in all lower case.</p>
+<p><img src="../TerminalPWD_Small.png" alt="alt text" title="Terminal Default"></p>
+<p>The output was <code>/Users/test</code>.  That probably feels anticlimactic.  What does this command do?  What does /Users/test even mean?  We have to figure it out.  Luckily, there&rsquo;s a hand tool called &ldquo;man&rdquo; which will give us a manual for a tool if it&rsquo;s been installed on the system.  Let&rsquo;s type</p>
+<p><code>man pwd</code></p>
+<p>to see what PWD does.</p>
+<p><img src="../TerminalManPWD_Small.png" alt="alt text" title="Terminal Default"></p>
+<p>In the description, we see that the PWD utility writes the absolute pathname of the current working directory to the standard output.  If you hit the space bar, the man page skips down a full page.  You can hit the up and down arrows to move through the file one line at a time.  You can it the &ldquo;b&rdquo; key to go back and the &ldquo;q&rdquo; key to quit out of the man application.</p>
+<p>We learned that the pwd command expresses where you are currently located in the <em><strong>File System</strong></em>.</p>
+<p>So if the output of pwd is <code>/Users/test</code>, that tells us we are currently in the directory &rsquo;test&rsquo; which is nested within another directory called &lsquo;Users&rsquo; which is also under a directory named &lsquo;/&rsquo;.  Take a note of this directory- we&rsquo;ll come back to it later.</p>
+<p>Let&rsquo;s try a new command called &ldquo;ls&rdquo; :</p>
+<p><code>ls</code></p>
+<p><img src="../TerminalLS_Small.png" alt="alt text" title="Terminal Default"></p>
+<p>It reported back 8 things.  Let&rsquo;s see what the ls command does with the man tool:</p>
+<p><img src="../TerminalMANLS_Small.png" alt="alt text" title="Terminal Default"></p>
+<p>According to the man page, ls lists the contents of a directory.  Notice at the bottom of the page, there is a <code>:</code>.  If you hit the forwardslash key <code>/</code>, you can then type a case sensitive search term.  Let&rsquo;s search for the term <code>EXAMPLES</code></p>
+<p><img src="../TerminalManSearchEXAMPLES_Small.png" alt="alt text" title="Terminal Man LS search exmaple"></p>
+<p>Hit <code>return</code></p>
+<p><img src="../searchHighlight_Small.png" alt="alt text" title="Search higlighting exmaple"></p>
+<p>The man page will jump to any sections that match the text.  As you can see, the all uppercase word &ldquo;EXAMPLES&rdquo; is highlighted at the top of the page.  If there is more than one instance of the word &ldquo;EXAMPLES, you can hit the <code>n</code> key and man will jump through the document to the next instance.  If there are no further instances, the semicolon at the bottom of the page will report Pattern not found.</p>
+<p><img src="../patternnotfound_Small.png" alt="alt text" title="Pattern not found"></p>
+<p>The Examples section of man pages is very helpful.  It will often show additional &ldquo;command line options&rdquo; which will produce more informative results.  The man example suggests <code>ls -lioF</code>.   Let&rsquo;s run this command and see it&rsquo;s output:</p>
+<p><img src="../lsliof_Small.png" alt="alt text" title="ls -liof"></p>
+<p>The second column of results gives us some intersting information.  The first thing to note is the &rsquo;d&rsquo; at the beginning of the column.  This tells you that the object that&rsquo;s listed in that row is a Directory.  You can also infer this from the forward slash <code>/</code> at the end of each entry.</p>
+<p>The ls command has many command line options.  Let&rsquo;s try adding a few extra letters to the command: <code>ls -alhioF</code></p>
+<p><img src="../ls_alhioF_Small.png" alt="alt text" title="ls -liof"></p>
+<p>You&rsquo;ll see the output is different.  You&rsquo;ll also notice that there are now new entries which start with a &ldquo;.&rdquo;!  In Unix and Linux systems, you can hide filesystem objects from the standard response by prepending them with a &ldquo;.&rdquo;.  In the command we used, we included the command line option of -a, which tells ls to include entires that start with a &ldquo;.&rdquo; in the response.</p>
+<p>In addition, some of the files don&rsquo;t have the / at the end of the name.  For those instances, if you look at the second column, you&rsquo;ll see that those entries also don&rsquo;t have the &ldquo;d&rdquo; value.  This means that these are files rather than directories.  We now have a better way to explore the file system.  The alhioF command line arguments are a lot to remember- so I try to use the simpler <code>ls -alh</code> command.</p>
+<p><img src="../lsalh_Small.png" alt="alt text" title="ls -alh"></p>
+<ul>
+<li>-a returns files hidden with a . at the beginning of the name</li>
+<li>-l returns &ldquo;The Long Format&rdquo; of the entries for each file (try searching the man page of LS for &ldquo;The Long Format&rdquo; to learn more)</li>
+<li>-h returns the size of each file in a human readable format (e.g 512B vs 6.0K is telling you the size of the file in bytes or Kilobytes)</li>
+</ul>
+<p>Let&rsquo;s circle back to the root directory we explored using the Finder.  We will use the <code>cd</code> command to change into the root directory:</p>
+<p><code>cd /</code></p>
+<p><img src="../cdroot_Small.png" alt="alt text" title="ls -alh"></p>
+<p>Notice that the command line changed. The <code>~</code> was replaced with a <code>/</code> after the command ran.  We asked the interpreter to change to the / directory.  You can change into a directory by typing <code>cd</code> and then providing a full path to a location.</p>
+<p>Let&rsquo;s now run an ls -alh command from the / directory:</p>
+<p><img src="../rootlsalh_Small.png" alt="alt text" title="ls -alh"></p>
+<p>Do you remember what directory we were in when you ran the pwd command?  Let&rsquo;s add that to the cd command and run ls again:</p>
+<p><img src="../comparerootandtest_Small.png" alt="alt text" title="ls -alh"></p>
+<p>As you can see, the output of ls changes to reflect whatever directory you are in.  You can use the cd command to change directories.  Let&rsquo;s get ourselves back to the / directory with <code>cd /</code> and compare what root looks like in Finder versus the terminal.</p>
+<p>The root directory has more files than we saw in the finder.  Let&rsquo;s compare:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ls -alh root</th>
+<th style="text-align:center">Finder root</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><img src="../rootlsalhmarkup_Small.png" alt="alt text" title="ls -alh"></td>
+<td style="text-align:center"><img src="../macos_Small.png" alt="alt text" title="ls -alh"></td>
+</tr>
+</tbody>
+</table>
+<p>As you can see- the ls output includes Applications, Library, System and Users.  But there are many more files.  You don&rsquo;t see the same set of files in the finder.  This should demonstrate why it is valuable to learn how to work with the command line.  As we work more with the machine, we will explore many commands.  You can find a helpful cheat sheet of macos terminal commands <a href="https://github.com/0nn0/terminal-mac-cheatsheet">here</a>.</p>
+<p><a href="https://support.apple.com/guide/terminal/welcome/mac">Apple userguide for Terminal</a></p>
+</article>
+
+        </main><footer id="footer">
+    Copyright © 2023 Patrick McCanna
+</footer>
+</body>
+</html>

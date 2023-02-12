@@ -1,9 +1,542 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on Shell</title>
+    <title>Categories on Hack-me-access-point-website</title>
     <link>http://10.10.10.1/Tutorial/categories/</link>
-    <description>Recent content in Categories on Shell</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="http://10.10.10.1/Tutorial/categories/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Categories on Hack-me-access-point-website</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    
+	<atom:link href="http://10.10.10.1/Tutorial/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    
+    
+    
+    <item>
+      <title>Tutorial: Learning how to get around on a mac</title>
+      <link>http://10.10.10.1/Tutorial/tutorial-learning-how-to-get-around-on-a-mac/</link>
+      <pubDate>Fri, 10 Feb 2023 15:47:41 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/tutorial-learning-how-to-get-around-on-a-mac/</guid>
+      <description>&lt;p&gt;In this lab, we will establish some fundamental concepts that are important for working with computers:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Basic definition of a computer&lt;/li&gt;
+&lt;li&gt;Introduction of the concept of an &lt;strong&gt;Operating System&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Introduction of the &lt;strong&gt;Dock application&lt;/strong&gt; in MacOS&lt;/li&gt;
+&lt;li&gt;Introduction of the &lt;strong&gt;Finder application&lt;/strong&gt; in MacOS&lt;/li&gt;
+&lt;li&gt;Introduction of the concept of a &lt;strong&gt;File System&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Introduction of the concept of a &lt;strong&gt;Command Interpreter&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Introduction of the &lt;strong&gt;Terminal application&lt;/strong&gt; in MacOS&lt;/li&gt;
+&lt;li&gt;Introduction of basic command line navigation in MacOS using the commands pwd, ls, man and cd&lt;/li&gt;
+&lt;li&gt;Introduction of how to list the contents of a working direcotry.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This lesson is meant to introducre the Finder and the Terminal, which will be key tools you will use in your Security education.&lt;/p&gt;
+&lt;p&gt;Take a moment and describe what a computer is.  Write your explanation down.  After you are done, continue reading this lab and compare it with the definition I provide.  When you do, compare the differences between our descriptions.  This will help you understand where you need to grow in your understanding of computing fundamentals.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-a-computer&#34;&gt;What is a computer?&lt;/h1&gt;
+&lt;p&gt;A computer is &lt;strong&gt;hardware&lt;/strong&gt; that is able to run &lt;strong&gt;software&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;A computer has an &lt;strong&gt;operating system&lt;/strong&gt;, which is responsible for managing the interactions between software with the computer&amp;rsquo;s hardware.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-an-operating-system&#34;&gt;What is an Operating System?&lt;/h1&gt;
+&lt;p&gt;Microsoft Windows, MacOS, iOS, Android and Linux are examples of &amp;ldquo;&lt;strong&gt;Operating Systems&lt;/strong&gt;.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;You can interact with a computer through a graphic user interface (&lt;strong&gt;GUI&lt;/strong&gt;) or a &lt;strong&gt;Command Interpreter&lt;/strong&gt;.  Microsoft Windows, MacOS, iOS and Android are operating systems with a graphic user interface.  On Windows, you can run the applications named  &amp;ldquo;Powershell&amp;rdquo; or &amp;ldquo;cmd.exe&amp;rdquo; as a command interpreter.  On MacOS, the Terminal is the command interpreter.   Android and iOS don&amp;rsquo;t  have a command line available by default- most users only interact with Android &amp;amp; iOS via the GUI.&lt;/p&gt;
+&lt;p&gt;You can explore the file system on a mac by opening an app called the &amp;ldquo;&lt;strong&gt;Finder&lt;/strong&gt;.&amp;rdquo;&lt;/p&gt;
+&lt;h2 id=&#34;the-macos-dock&#34;&gt;The MacOS Dock&lt;/h2&gt;
+&lt;p&gt;There is a display element called the &amp;ldquo;&lt;strong&gt;Dock&lt;/strong&gt;&amp;rdquo; at the bottom of the Mac&amp;rsquo;s desktop:
+&lt;img src=&#34;../dockLarge.png&#34; alt=&#34;alt text&#34; title=&#34;Dock&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-macos-finder&#34;&gt;The MacOS Finder&lt;/h2&gt;
+&lt;p&gt;On a Mac, the Finder is in the dock by default and has an icon that looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../finder_dockLarge.png&#34; alt=&#34;alt text&#34; title=&#34;Finder_Dock&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Double click on the Finder icon to launch the finder.  The default finder view hides some valuable information.  In it&amp;rsquo;s initial presentation, it likely shows &amp;ldquo;recent files&amp;rdquo; like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../finder_default_viewLarge.png&#34; alt=&#34;alt text&#34; title=&#34;Finder Default View&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The default view of the finder prevents you from seeing the file system structure clearly.  I will make some changes to the finder settings which will make it easier to see the filesystem.  For starters, let&amp;rsquo;s change the view from Icons to List.  The menu where you can change the view is located here:&lt;/p&gt;
+&lt;h3 id=&#34;changing-the-finder-view-to-list-mode-and-unhiding-the-hard-drive&#34;&gt;Changing the finder view to list mode and unhiding the hard drive.&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&#34;../finder_default_view_settings_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Finder Settings&#34;&gt;
+If your window is compressed, the view menu looks like this:
+&lt;img src=&#34;../compressed_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Finder compressed view&#34;&gt;&lt;/p&gt;
+&lt;p&gt;We need to change the view to List view by clicking on this icon:
+&lt;img src=&#34;../finder_change_to_list_view_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Finder compressed view&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The List view presents slightly differently if your finder is compressed:
+&lt;img src=&#34;../compressed_list_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Compressed List&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Next, we need to unhide the hard drive via the finder settings.  You can open the finder settings by clicking finder at the top of the menu bar, and then selecting settings:
+&lt;img src=&#34;../finder_settings_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Finder settings&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The settings menu will open.  Across the top, it lists &amp;ldquo;General&amp;rdquo;, &amp;ldquo;Tags&amp;rdquo;, &amp;ldquo;Sidebar&amp;rdquo; and &amp;ldquo;Advanced&amp;rdquo;.  Click on Sidebar, and the menu will look like this:
+&lt;img src=&#34;../finder_settings_sidebar_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Finder settings Sidebar&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In the locations setion, make sure that &amp;ldquo;Hard Disks&amp;rdquo; is changed to have a blue checkmark.  Close the menu.  When you look at the finder, you&amp;rsquo;ll now see a location labeled &amp;ldquo;MacOS&amp;rdquo; (the name may be different if you customized it during mac setup)
+&lt;img src=&#34;../locations_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Finder settings Sidebar&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When you click on MacOS, you&amp;rsquo;ll see something similar to this screenshot, which shows you a view of the / directory of the &lt;strong&gt;File System&lt;/strong&gt;:
+&lt;img src=&#34;../macos_Small.png&#34; alt=&#34;alt text&#34; title=&#34;MacOS View&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;what-is-a-file-system&#34;&gt;What is a File System?&lt;/h1&gt;
+&lt;p&gt;A computer has a &lt;strong&gt;file system&lt;/strong&gt;, which is a hierarchical storage structure of files, directories &amp;amp; executable programs.   If you use a word processor to create documents, you are storing files in locations on the computer somewhere within the file system.  You are launching the wordprocessor application from somewhere within the file system.  You can think of the file system like an organized filing cabinet filled with folders that have documents in them.&lt;/p&gt;
+&lt;p&gt;On Linux computers and MacOS, there is a directory called / and it pronounced &amp;ldquo;root.&amp;rdquo;  Everything on the file system is stored somewhere under /.&lt;/p&gt;
+&lt;p&gt;The MacOS view in the finder represents the / folder of the system.  If you open the drive, you should see something like the following:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../macos_Small.png&#34; alt=&#34;alt text&#34; title=&#34;MacOS View&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This view of the root filesystem is incomplete, however.  As you experieced earlier when we changed the finder settings to show the hard disk, there are  default settings of the Finder which hide aspects of the system.  Graphic User Interfaces designed to keep beginners from accidentally damaging the system in it&amp;rsquo;s default state.  As a result, they&amp;rsquo;re not always the best tool for experts to use.  When we&amp;rsquo;re doing security work, we&amp;rsquo;re going to spend a lot of time using a Command Interpeter.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-a-command-interpreter&#34;&gt;What is a Command Interpreter?&lt;/h1&gt;
+&lt;p&gt;Wikipedia defines a Command Interpreter as &amp;ldquo;a blanket term for a certain class of programs designed to read lines of text entered by a user, thus implementing a command-line interface.&amp;rdquo;  It&amp;rsquo;s a simple tool that accepts commands typed by the user, performs operations and presents results of those operations.&lt;/p&gt;
+&lt;h1 id=&#34;what-is-spotlight-search&#34;&gt;What is Spotlight Search?&lt;/h1&gt;
+&lt;p&gt;Spotlight can help you quickly find apps, documents, emails, and other items on your Mac.  Apple has an &lt;a href=&#34;https://support.apple.com/guide/mac-help/search-with-spotlight-mchlp1008/mac&#34;&gt;Apple support page&lt;/a&gt; that provides more detail on the features of Spotlight Search.  We can use spotlight search to quickly launch applications if we know their name.&lt;/p&gt;
+&lt;p&gt;On your Mac, if you press the &amp;ldquo;Command&amp;rdquo; and &amp;ldquo;Space&amp;rdquo; keys simultaneously, Spotlight Search will show in the middle of your screen.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../SpotlightSearch_Small.png&#34; alt=&#34;alt text&#34; title=&#34;MacOS Spotlight search&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can type &amp;ldquo;terminal&amp;rdquo; to launch Mac&amp;rsquo;s Command Interpreter.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../SpotlightSearchTerminal_Small.png&#34; alt=&#34;alt text&#34; title=&#34;MacOS Spotlight launching the Terminal&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The default view of the terminal is something similar to this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../TerminalDefault_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal Default&#34;&gt;&lt;/p&gt;
+&lt;p&gt;On the left side of the terminal, you&amp;rsquo;ll see the username of the account you&amp;rsquo;re logged into, then an @ sign and finally the hostname of your mac.  In my case, I&amp;rsquo;m logged into an account called &amp;ldquo;Test&amp;rdquo; and the computer I&amp;rsquo;m logged into is a macbook air with the hostname of Patricks-Air-5.  There&amp;rsquo;s then a &amp;ldquo;~&amp;rdquo; (pronounced Til-duh), and then a percentage sign.  The ~ is a signal that tells you you&amp;rsquo;re in your account&amp;rsquo;s home directory, and the % is a signal that the command interpreter you are running is something called zsh (or Z Shell).  There are many different command interpreters you could run, each with subtle differences optimized for different kinds of use cases.  ZSH has some autocomplete and navigation advantages which make it preferred by some advanced users.&lt;/p&gt;
+&lt;p&gt;Try typing your first command in the terminal:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pwd&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Note that the command is case sensitive- you have to type it in all lower case.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../TerminalPWD_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal Default&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The output was &lt;code&gt;/Users/test&lt;/code&gt;.  That probably feels anticlimactic.  What does this command do?  What does /Users/test even mean?  We have to figure it out.  Luckily, there&amp;rsquo;s a hand tool called &amp;ldquo;man&amp;rdquo; which will give us a manual for a tool if it&amp;rsquo;s been installed on the system.  Let&amp;rsquo;s type&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;man pwd&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;to see what PWD does.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../TerminalManPWD_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal Default&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In the description, we see that the PWD utility writes the absolute pathname of the current working directory to the standard output.  If you hit the space bar, the man page skips down a full page.  You can hit the up and down arrows to move through the file one line at a time.  You can it the &amp;ldquo;b&amp;rdquo; key to go back and the &amp;ldquo;q&amp;rdquo; key to quit out of the man application.&lt;/p&gt;
+&lt;p&gt;We learned that the pwd command expresses where you are currently located in the &lt;em&gt;&lt;strong&gt;File System&lt;/strong&gt;&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;So if the output of pwd is &lt;code&gt;/Users/test&lt;/code&gt;, that tells us we are currently in the directory &amp;rsquo;test&amp;rsquo; which is nested within another directory called &amp;lsquo;Users&amp;rsquo; which is also under a directory named &amp;lsquo;/&amp;rsquo;.  Take a note of this directory- we&amp;rsquo;ll come back to it later.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s try a new command called &amp;ldquo;ls&amp;rdquo; :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../TerminalLS_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal Default&#34;&gt;&lt;/p&gt;
+&lt;p&gt;It reported back 8 things.  Let&amp;rsquo;s see what the ls command does with the man tool:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../TerminalMANLS_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal Default&#34;&gt;&lt;/p&gt;
+&lt;p&gt;According to the man page, ls lists the contents of a directory.  Notice at the bottom of the page, there is a &lt;code&gt;:&lt;/code&gt;.  If you hit the forwardslash key &lt;code&gt;/&lt;/code&gt;, you can then type a case sensitive search term.  Let&amp;rsquo;s search for the term &lt;code&gt;EXAMPLES&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../TerminalManSearchEXAMPLES_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal Man LS search exmaple&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Hit &lt;code&gt;return&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../searchHighlight_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Search higlighting exmaple&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The man page will jump to any sections that match the text.  As you can see, the all uppercase word &amp;ldquo;EXAMPLES&amp;rdquo; is highlighted at the top of the page.  If there is more than one instance of the word &amp;ldquo;EXAMPLES, you can hit the &lt;code&gt;n&lt;/code&gt; key and man will jump through the document to the next instance.  If there are no further instances, the semicolon at the bottom of the page will report Pattern not found.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../patternnotfound_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Pattern not found&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The Examples section of man pages is very helpful.  It will often show additional &amp;ldquo;command line options&amp;rdquo; which will produce more informative results.  The man example suggests &lt;code&gt;ls -lioF&lt;/code&gt;.   Let&amp;rsquo;s run this command and see it&amp;rsquo;s output:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../lsliof_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -liof&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The second column of results gives us some intersting information.  The first thing to note is the &amp;rsquo;d&amp;rsquo; at the beginning of the column.  This tells you that the object that&amp;rsquo;s listed in that row is a Directory.  You can also infer this from the forward slash &lt;code&gt;/&lt;/code&gt; at the end of each entry.&lt;/p&gt;
+&lt;p&gt;The ls command has many command line options.  Let&amp;rsquo;s try adding a few extra letters to the command: &lt;code&gt;ls -alhioF&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../ls_alhioF_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -liof&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll see the output is different.  You&amp;rsquo;ll also notice that there are now new entries which start with a &amp;ldquo;.&amp;rdquo;!  In Unix and Linux systems, you can hide filesystem objects from the standard response by prepending them with a &amp;ldquo;.&amp;rdquo;.  In the command we used, we included the command line option of -a, which tells ls to include entires that start with a &amp;ldquo;.&amp;rdquo; in the response.&lt;/p&gt;
+&lt;p&gt;In addition, some of the files don&amp;rsquo;t have the / at the end of the name.  For those instances, if you look at the second column, you&amp;rsquo;ll see that those entries also don&amp;rsquo;t have the &amp;ldquo;d&amp;rdquo; value.  This means that these are files rather than directories.  We now have a better way to explore the file system.  The alhioF command line arguments are a lot to remember- so I try to use the simpler &lt;code&gt;ls -alh&lt;/code&gt; command.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../lsalh_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -alh&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;-a returns files hidden with a . at the beginning of the name&lt;/li&gt;
+&lt;li&gt;-l returns &amp;ldquo;The Long Format&amp;rdquo; of the entries for each file (try searching the man page of LS for &amp;ldquo;The Long Format&amp;rdquo; to learn more)&lt;/li&gt;
+&lt;li&gt;-h returns the size of each file in a human readable format (e.g 512B vs 6.0K is telling you the size of the file in bytes or Kilobytes)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&amp;rsquo;s circle back to the root directory we explored using the Finder.  We will use the &lt;code&gt;cd&lt;/code&gt; command to change into the root directory:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd /&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../cdroot_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -alh&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Notice that the command line changed. The &lt;code&gt;~&lt;/code&gt; was replaced with a &lt;code&gt;/&lt;/code&gt; after the command ran.  We asked the interpreter to change to the / directory.  You can change into a directory by typing &lt;code&gt;cd&lt;/code&gt; and then providing a full path to a location.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s now run an ls -alh command from the / directory:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../rootlsalh_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -alh&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Do you remember what directory we were in when you ran the pwd command?  Let&amp;rsquo;s add that to the cd command and run ls again:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../comparerootandtest_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -alh&#34;&gt;&lt;/p&gt;
+&lt;p&gt;As you can see, the output of ls changes to reflect whatever directory you are in.  You can use the cd command to change directories.  Let&amp;rsquo;s get ourselves back to the / directory with &lt;code&gt;cd /&lt;/code&gt; and compare what root looks like in Finder versus the terminal.&lt;/p&gt;
+&lt;p&gt;The root directory has more files than we saw in the finder.  Let&amp;rsquo;s compare:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;ls -alh root&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;Finder root&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;../rootlsalhmarkup_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -alh&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;../macos_Small.png&#34; alt=&#34;alt text&#34; title=&#34;ls -alh&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;As you can see- the ls output includes Applications, Library, System and Users.  But there are many more files.  You don&amp;rsquo;t see the same set of files in the finder.  This should demonstrate why it is valuable to learn how to work with the command line.  As we work more with the machine, we will explore many commands.  You can find a helpful cheat sheet of macos terminal commands &lt;a href=&#34;https://github.com/0nn0/terminal-mac-cheatsheet&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://support.apple.com/guide/terminal/welcome/mac&#34;&gt;Apple userguide for Terminal&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Hotspot Hacking Challenges</title>
+      <link>http://10.10.10.1/Tutorial/hotspot-hacking-challenges/</link>
+      <pubDate>Sun, 05 Feb 2023 20:23:14 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/hotspot-hacking-challenges/</guid>
+      <description>&lt;h1 id=&#34;easy-challenges&#34;&gt;Easy Challenges&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;What is the Wifi Password?&lt;/li&gt;
+&lt;li&gt;When you are connected to the network, what is default gateway ipaddress and hostname of the default gateway?  What is the IP address that was assigned to the device you were attached to?   What is the DNS server’s IP address while you’re connected to the hotspot?  (Need a clue?  check out this video: &lt;a href=&#34;https://www.youtube.com/watch?v=6PZp7LNKHgk&#34;&gt;https://www.youtube.com/watch?v=6PZp7LNKHgk&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Are you able to connect to the Internet over the hotspot in its default configuration?  How did you determine this?  Why does or doesn&amp;rsquo;t it work?&lt;/li&gt;
+&lt;li&gt;What possible entry points exist for gaining access to the Hotspot?  Describe you tested to discover if the attack is possible?
+How can you gain shell access to the device?  Do not continue to the next section until you have been able to gain access&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;medium-challenges&#34;&gt;Medium Challenges&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;How do you change the password on the Access Point?&lt;/li&gt;
+&lt;li&gt;How do you configure SSHD so that you don’t have to rely on passwords?&lt;/li&gt;
+&lt;li&gt;What is the operating system version of the device?&lt;/li&gt;
+&lt;li&gt;What services are listening on the device?&lt;/li&gt;
+&lt;li&gt;What web server is running on the device?&lt;/li&gt;
+&lt;li&gt;Describe any web page you found on the device.  What was the URL?  Were you able to view it?&lt;/li&gt;
+&lt;li&gt;Where are the logs for the webserver stored?&lt;/li&gt;
+&lt;li&gt;Where are the files for the webserver stored?&lt;/li&gt;
+&lt;li&gt;Can you view the web page?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;advanced-challenges&#34;&gt;Advanced Challenges&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;What is HostAPD?&lt;/li&gt;
+&lt;li&gt;What is an interface?&lt;/li&gt;
+&lt;li&gt;What interface is HostAPD running on?&lt;/li&gt;
+&lt;li&gt;What is the ipaddress on wlan0?&lt;/li&gt;
+&lt;li&gt;What is the ipaddress on eth0?  Why?&lt;/li&gt;
+&lt;li&gt;Where are the HostAPD access logs?&lt;/li&gt;
+&lt;li&gt;What file do you need to edit to change the SSID, Password and wifi security settings?&lt;/li&gt;
+&lt;li&gt;What is IP forwarding?  What is ip Masquerading?&lt;/li&gt;
+&lt;li&gt;What is a “router”?&lt;/li&gt;
+&lt;li&gt;What are the major steps for turning our Hacking hotspot into a working wifi access point that gives access to the Internet?&lt;/li&gt;
+&lt;li&gt;What is IP Forwarding? How do we enable it?&lt;/li&gt;
+&lt;li&gt;How can you change your device into a working access point?&lt;/li&gt;
+&lt;li&gt;How do you get connectivity working on the Ethernet Interface?&lt;/li&gt;
+&lt;li&gt;Plugging it into a network with DHCP&lt;/li&gt;
+&lt;li&gt;Plugging it into a network with static ip addresses&lt;/li&gt;
+&lt;li&gt;How do you turn on ip forwarding in linux?&lt;/li&gt;
+&lt;li&gt;How do you make it a permanent change?&lt;/li&gt;
+&lt;li&gt;How do you activate Network Address translation?&lt;/li&gt;
+&lt;li&gt;How do you vend IP addresses to devices that are attached to your network?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;privacysecurity-defense-challenges&#34;&gt;Privacy/Security Defense Challenges&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;What does an admin know about you while you’re attached to the device?&lt;/li&gt;
+&lt;li&gt;What do you see when running tail –f /var/log/hostapd.log while a device attaches to the wifi network?&lt;/li&gt;
+&lt;li&gt;What do you see when running tail-f /var/log/dnsmasq.log while a device attaches to the wifi network?&lt;/li&gt;
+&lt;li&gt;What do you see when running tail –f /var/log/lighttpd/access.log while a device browses to the web site?&lt;/li&gt;
+&lt;li&gt;What are the privacy implications for connecting to a wifi network?&lt;/li&gt;
+&lt;li&gt;What information does an Access Point operator have about you if you attach to that network?&lt;/li&gt;
+&lt;li&gt;What kind of attacks can an admin execute while you’re attached to the device?&lt;/li&gt;
+&lt;li&gt;What is packet sniffing?  How could it be done?&lt;/li&gt;
+&lt;li&gt;What is a MITM attack?  How could it be done?&lt;/li&gt;
+&lt;li&gt;What is DNS hijacking?  How could it be done?&lt;/li&gt;
+&lt;li&gt;How can you harden this access point so that no one could reproduce the attacks you used?&lt;/li&gt;
+&lt;li&gt;How do you install software?&lt;/li&gt;
+&lt;li&gt;How could you configure SSHD to resist brute force password guesses?&lt;/li&gt;
+&lt;li&gt;What is Fail2Ban&lt;/li&gt;
+&lt;li&gt;What is nftables?&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Step 1: How to brute force the Wifi password</title>
+      <link>http://10.10.10.1/Tutorial/step-1-how-to-brute-force-the-wifi-password/</link>
+      <pubDate>Sat, 04 Feb 2023 18:41:51 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/step-1-how-to-brute-force-the-wifi-password/</guid>
+      <description>&lt;p&gt;In this lab, we will brute force the wifi credential of the hotspot.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- [ ] Find the wifi network
+- [ ] Manually guess some passwords
+- [ ] Find a dictionary
+- [ ] Find a command to use to connect to wifi networks 
+- [ ] Figure out how to push the passwords from the dictionary file into the wifi connection command
+- [ ] Launch the attack and Discover the credential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;before-you-start&#34;&gt;BEFORE YOU START&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Make sure you have downloaded and installed the firmware onto an SDCard and installed the SDCard into your pi .&lt;/li&gt;
+&lt;li&gt;Make sure that when you power up the pi, you see a solid red power light and occasional blinking green lights.&lt;/li&gt;
+&lt;li&gt;Make sure you have both a mobile phone and a Mac laptop.  DO NOT PERFORM THIS WORK ON A CORPORATE OR MANAGED LAPTOP.  As we work through future labs, you will use tools that might get flagged as &amp;ldquo;hacking tools&amp;rdquo; by device management teams.  You should only perform this work on a computer you own.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;discoverying-the-wifi-network&#34;&gt;Discoverying the Wifi Network&lt;/h1&gt;
+&lt;p&gt;The Raspberry Pi will operate as a wifi access point that you can practice hacking against.  About a minute after it is powered on, it will broadcast a wifi network with the name 🌹☠️🌹.   You should find it from your mobile phone.  If you are using an iOS device, it would be under settings-&amp;gt;wifi.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;settings&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;wifi&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;../settingsMedium.png&#34; alt=&#34;alt text&#34; title=&#34;Settings&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;img src=&#34;../wifiMedium.png&#34; alt=&#34;alt text&#34; title=&#34;wifi&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre&gt;&lt;code&gt;- [x] Find the wifi network
+- [ ] Manually guess some passwords
+- [ ] Find a dictionary
+- [ ] Find a command to use to connect to wifi networks 
+- [ ] Figure out how to push the passwords from the dictionary file into the wifi connection command
+- [ ] Launch the attack and Discover the credential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;manually-guessing-a-password&#34;&gt;Manually guessing a password&lt;/h1&gt;
+&lt;p&gt;The 🌹☠️🌹 network is the one we&amp;rsquo;ll be targeting.  So now you can try guessing some passwords if you&amp;rsquo;d like.  You should find that unless you&amp;rsquo;re really lucky, you won&amp;rsquo;t be able to guess it.  You might want to read &lt;a href=&#34;https://patrickmccanna.net/password-strength/&#34;&gt;this post on password strength&lt;/a&gt; for an understanding of just how many possible passwords could be used on the device.  Password guessing is not a good strategy- and neither is raw brute forcing, but perhaps there&amp;rsquo;s an in-between approach.&lt;/p&gt;
+&lt;p&gt;People generally prefer to use passwords that are Memorable.  If you can&amp;rsquo;t remember your password, you can&amp;rsquo;t prove that you&amp;rsquo;re the person who should be allowed to access the device.  Since people generally use memorable passwords, it stands to reason that the set of possible &amp;ldquo;memorable&amp;rdquo; passwords is significantly smaller than the total set of possible passwords.  If someone had a list of commonly used passwords, they might be able to speed up the process by trying those first before resorting to brute force.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- [x] Find the wifi network
+- [x] Manually guess some passwords
+- [ ] Find a dictionary
+- [ ] Find a command to use to connect to wifi networks 
+- [ ] Figure out how to push the passwords from the dictionary file into the wifi connection command
+- [ ] Launch the attack and Discover the credential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;finding-a-dictionary&#34;&gt;Finding a Dictionary&lt;/h1&gt;
+&lt;p&gt;Let&amp;rsquo;s try to find a common password list.  You can do this by searching google for the following phrase:&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;10k most common passwords&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;you should see a link to a github repository show up that&amp;rsquo;s at the following url:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&#34;&gt;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Browse to the page.  Click on the button labeled &amp;ldquo;raw&amp;rdquo; on the right side of the page.  You can then save this file to your computer by clicking on the file menu for the browser and selecting &amp;ldquo;save as.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../saveasMedium.png&#34; alt=&#34;alt text&#34; title=&#34;saveas&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When you click on Save as, a dialog will show up:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../saveas_dialogMedium.png&#34; alt=&#34;alt text&#34; title=&#34;Dialog&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll need to create a directory for starting our hacking.  You can do this from within the dialog by clicking on New Folder.  Name it HackingLab and click Create.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../NewFolderMedium.png&#34; alt=&#34;alt text&#34; title=&#34;NewFolder&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Then go ahead and click on save.  You&amp;rsquo;ll now have a file called &amp;ldquo;10k-most-common.txt&amp;rdquo; in the Hacking lab direcotry.  Let&amp;rsquo;s learn to view the file from the command line.  Let&amp;rsquo;s use spotlight to open up the terminal by hitting command and space simultaneously, and then typing in terminal:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../SpotlightSearchTerminal_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Change into your HackingLab directory by typing the following:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;cd HackingLab&lt;/code&gt;
+Now that you&amp;rsquo;re in the HackingLab directory, let&amp;rsquo;s view the password file:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;more 10k-most-common.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll see that each row of the file contains a password.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../moreLarge.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Hit &lt;code&gt;q&lt;/code&gt; to leave the more command.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- [x] Find the wifi network
+- [x] Manually guess some passwords
+- [x] Find a dictionary
+- [ ] Find a command to use to connect to wifi networks 
+- [ ] Figure out how to push the passwords from the dictionary file into the wifi connection command
+- [ ] Launch the attack and Discover the credential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;finding-a-command-to-use-to-connect-to-wifi-networks&#34;&gt;Finding a command to use to connect to wifi networks&lt;/h1&gt;
+&lt;p&gt;We&amp;rsquo;ve got some passwords- now we need to figure out how to automate the connection attempts.  Let&amp;rsquo;s do some google searching for &amp;ldquo;Connect to wifi from command line mac.&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;I found a posting here:
+&lt;a href=&#34;https://sharmank.medium.com/how-to-connect-to-wifi-using-mac-os-command-line-3a76c2e6669c&#34;&gt;https://sharmank.medium.com/how-to-connect-to-wifi-using-mac-os-command-line-3a76c2e6669c&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In it, they show two interesting commands:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -s&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;and&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;networksetup -setairportnetwork en0 &amp;lt;SSID_OF_NETWORK&amp;gt; &amp;lt;PASSWORD&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Try running the first command  (airport -s) from your mac.  On my machine, I find the command is sometimes unreliable and I need to run it multiple times, as you can see below:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../airport_Medium.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In this command, you see a list of all the local wifi networks.  So we can confirm we see our target hacking environment.&lt;/p&gt;
+&lt;p&gt;Now we need to explore this networksetup command.  If you copy and paste it raw, you&amp;rsquo;ll get an error, because it is expecting you to insert the ssid and the password into the command.  So if we wanted to try a single password against the device, we&amp;rsquo;d need to do something like the following:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;networksetup -setairportnetwork en0 🌹☠️🌹 somepassword&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;(You can get an emoji keyboard by hitting the control+command+space keys simultaneously, and then you can search for skull or rose by typing in &amp;ldquo;rose&amp;rdquo; in the keyboard search:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../emoji_Small.png&#34; alt=&#34;alt text&#34; title=&#34;Terminal&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When you run this command, you&amp;rsquo;ll see that your wifi network will disconnect temporarily, and then there will be an error if you guessed the wrong password.  Alright- we found a command that can be used to connect to wifi networks- now we need to combine it with wour password list.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../networksetupMedium.gif&#34; alt=&#34;alt text&#34; title=&#34;Terminal&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- [x] Find the wifi network
+- [x] Manually guess some passwords
+- [x] Find a dictionary
+- [x] Find a command to use to connect to wifi networks 
+- [ ] Figure out how to push the passwords from the dictionary file into the wifi connection command
+- [ ] Launch the attack and Discover the credential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;pushing-passwords-from-dictionary-file-into-the-wifi-connection-cammand&#34;&gt;Pushing passwords from dictionary file into the wifi connection cammand:&lt;/h1&gt;
+&lt;p&gt;Next, we&amp;rsquo;re going to do a little bash magic.&lt;/p&gt;
+&lt;p&gt;At the terminal, type the following lines in and hit enter at the end of each line:&lt;/p&gt;
+&lt;p&gt;while read passwordfilevalue; do&lt;/p&gt;
+&lt;p&gt;networksetup -setairportnetwork en0 🌹☠️🌹 &amp;ldquo;$passwordfilevalue&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;ifconfig en0 | grep inet&lt;/p&gt;
+&lt;p&gt;echo $passworfilevalue&lt;/p&gt;
+&lt;p&gt;done &amp;lt; 10k-most-common.txt&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- [x] Manually guess some passwords
+- [x] Find a dictionary
+- [x] Find a command to use to connect to wifi networks 
+- [x] Figure out how to push the passwords from the dictionary file into the wifi connection command
+- [x] Launch the attack and Discover the credential
+- [ ] Discovering the credential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;settings&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;wifi&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;while read passwordfilevalue; do&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;We&amp;rsquo;re going to write a &amp;ldquo;while&amp;rdquo; loop that will open the password list one row at a time.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;networksetup -setairportnetwork en0 🌹☠️🌹 &amp;quot;$passwordfilevalue&amp;quot;&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;pass the word that&amp;rsquo;s in the current row into a shell variable called passwordfilevalue.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;``` ifconfig en0&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;grep inet ```&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;echo $passworfilevalue&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Finally, we print out the password value that was used during the loop so we can see what password was tried.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;code&gt;done &amp;lt; 10k-most-common.txt&lt;/code&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;Finally, we echo out the password value that was used during the loop so we can see what password was tried.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;So if we see an inet value return, we can see the password that worked.  In the gif below, you&amp;rsquo;ll see a password which is not the password used on the full build, so you still have to go through the process yourself to hack the network. 😎&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- [x] Manually guess some passwords
+- [x] Find a dictionary
+- [x] Find a command to use to connect to wifi networks 
+- [x] Figure out how to push the passwords from the dictionary file into the wifi connection command
+- [x] Launch the attack and Discover the credential
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;../BruteForceLoopMedium.gif&#34; alt=&#34;alt text&#34; title=&#34;While Loop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When you&amp;rsquo;ve made it on to the wifi network, you&amp;rsquo;re ready to start working through the challenges outlined in the challenges file.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Step 2: Scanning the network</title>
+      <link>http://10.10.10.1/Tutorial/step-2-scanning-the-network/</link>
+      <pubDate>Fri, 03 Feb 2023 18:32:51 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/step-2-scanning-the-network/</guid>
+      <description>&lt;h2 id=&#34;scanning&#34;&gt;Scanning&lt;/h2&gt;
+&lt;p&gt;The first goal of many hackers is to identify the entry points into a system.  This can be achieved using network reconnisance tools to &amp;ldquo;scan&amp;rdquo; a host.&lt;/p&gt;
+&lt;p&gt;Scanning can be performed with an iphone app called &lt;a href=&#34;https://apps.apple.com/app/id557405467&#34;&gt;Net Analyer&lt;/a&gt;
+it also can be performed by installing and running an  app called &amp;rsquo;nmap&amp;rsquo; on a laptop.&lt;/p&gt;
+&lt;p&gt;You should attempt to scan the ip address of the hotspot.  Can you figure out what the ip address is of the Hotspot?  here&amp;rsquo;s a hint: it&amp;rsquo;s the default gateway that your device will have when it&amp;rsquo;s attached to the wifi network.  Perhaps there is a SETTING for the WIFI NETWORK which would give you a clue?&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=ltEFbi_I2KY&#34;&gt;Network Reconnisance basics video&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=I6kcGPp_Zx4&#34;&gt;Net Analyzer basics video&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=rxtbVJeUcJ0&#34;&gt;Discover your default gateway on a mac&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Step 3: Gaining Access to the Access Point</title>
+      <link>http://10.10.10.1/Tutorial/step-3-gaining-access-to-the-access-point/</link>
+      <pubDate>Thu, 02 Feb 2023 18:48:02 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/step-3-gaining-access-to-the-access-point/</guid>
+      <description>&lt;h2 id=&#34;gaining-access&#34;&gt;Gaining Access&lt;/h2&gt;
+&lt;h3 id=&#34;prerequistes&#34;&gt;Prerequistes&lt;/h3&gt;
+&lt;p&gt;You should read this section if you have identified the answers to the following questions from section 1:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;What is the ip address of the device you are using to connect to the wifi network?&lt;/li&gt;
+&lt;li&gt;What is the default gateway for the wifi interface of the device when it’s attached to the wifi network?&lt;/li&gt;
+&lt;li&gt;What service numbers &amp;amp; corresponding protocols did you discovered on the target system?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;your-objectives&#34;&gt;Your Objectives:&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Use a tool to connect to the ssh port of the raspberry pi&amp;rsquo;s ip address.&lt;/li&gt;
+&lt;li&gt;Guess the password of the system&lt;/li&gt;
+&lt;li&gt;Gain access to the system&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;You are ready for the next activity when you see a login screen that looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;../login.png&#34; alt=&#34;Success&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tips-what-do-we-know&#34;&gt;Tips: What do we know?&lt;/h2&gt;
+&lt;p&gt;We know the address of the hotspot and we know that there are some open ports on that address.  How do we know the address of the hotspot?&lt;/p&gt;
+&lt;p&gt;You have successfully completed a scan of the target.  Your scanner might have given you hints as to what the services are for- but these service names are not always reliable.  You can consider it a clue, but let&amp;rsquo;s learn how these tools infer the name of a service.&lt;/p&gt;
+&lt;h3 id=&#34;default-gatway&#34;&gt;Default Gatway&lt;/h3&gt;
+&lt;p&gt;The default gateway is the Internet Protocol address assigned to the access point&amp;rsquo;s wifi interface.  When you found your device&amp;rsquo;s default gateway, you found the address of the system you are going to target.&lt;/p&gt;
+&lt;p&gt;A default gateway connects a network to the Internet.  It is the host your phone/pc sends data through to connect to the Internet.  If you&amp;rsquo;re on a wifi network that works, there is a default gateway.  If you&amp;rsquo;re on a mobile network that works, there is a default gateway.  Every network has it&amp;rsquo;s own gateway.&lt;/p&gt;
+&lt;p&gt;In the current hotspot state, the device is not attached to the Internet.  It&amp;rsquo;s still cool though!  For example- the default gateway hosts this very cool web page!&lt;/p&gt;
+&lt;h3 id=&#34;listening-ports&#34;&gt;Listening ports&lt;/h3&gt;
+&lt;p&gt;You also know some port numbers that seem to be listening.  A port number is like an apartment number or PO box address.  You can think about port number like an apartment building address.  An apartment complex has a single shared address on some street:&lt;/p&gt;
+&lt;p&gt;To: Patrick
+420 Paper St.
+Wilmington DE 19886&lt;/p&gt;
+&lt;p&gt;But if you want to send a letter to a specific family, you have to specify an apartment number.  Everyone at the building has the same address, but each family has their own apartment number.&lt;/p&gt;
+&lt;p&gt;To: Patrick
+420 Paper St.
+Apartment 33
+Wilmington DE 19886&lt;/p&gt;
+&lt;p&gt;Port numbers like apartment numbers.  They are specific to process which accepts connections on the target system.  If you want to interact with the target system, you have to specify the port you&amp;rsquo;re connecting to.  If there is no service listening on that port, you won&amp;rsquo;t be able to connect.  An attacker must:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;specify the IP address of the system they want to perturb&lt;/li&gt;
+&lt;li&gt;specify the port that they are attaching to on that system&lt;/li&gt;
+&lt;li&gt;and use a client that speaks the service&amp;rsquo;s protocol to work with the service.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We know an address and we know some ports.  Let&amp;rsquo;s learn about what&amp;rsquo;s going on for those ports so we can develop a plan for gaining access to the system.&lt;/p&gt;
+&lt;h2 id=&#34;learning-about-entry-points&#34;&gt;Learning about entry points&lt;/h2&gt;
+&lt;p&gt;Your scanner might report service names discovered on the system.  These scanning tools are not always accurate. You can consider it a clue, but you should assume only the port numbers are right.  Let’s learn how these tools infer the name of a service.&lt;/p&gt;
+&lt;p&gt;The Internet Assigned Numbers Authority (iana.org) is responsible for the authoritative standards of how numbering is assigned in internet services. They publish a web site that hosts these materials. &lt;a href=&#34;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&#34;&gt;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Browse to the iana website.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Search for the port numbers you found to discover what kinds of services you discovered. Search for the possible “service name” that corresponds to the port number.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The service might have a reference RFC listed. Click on it to learn more about the service assigned to that port number.  Be sure to read the section called &lt;strong&gt;Abstract&lt;/strong&gt; for a quick review of its objectives.  Scan through the table of contents to see if there are any topics that look interesting to you.  It might be useful to look into any sections labeled ** Security Properties &lt;strong&gt;, ** Security Considerations ** and the word ** Authentication&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;By now you should have discovered a few services on the target system. You should research the names of the services you’ve discovered. These are all the ways we can gain access to a system without needing physical access to it.  The &amp;ldquo;Threat Surface&amp;rdquo; is the list of all possible entry points into a system.&lt;/p&gt;
+&lt;h3 id=&#34;attaching-to-an-http-entry-point&#34;&gt;Attaching to an http entry point&lt;/h3&gt;
+&lt;p&gt;You need to use the correct client to attach to an entry point.  If a service provides http or https support, you can use a web browser to attach to it.   You can use the ip address of the system, plus the port number to attach.&lt;/p&gt;
+&lt;p&gt;For an http session, you would connect to http://[Default Gateway IP]:[Port Number].  E.g. http://10.10.10.1:80&lt;/p&gt;
+&lt;p&gt;HTTPS sessions are typically hosted on port 443.  So in that instance you&amp;rsquo;d connect to http://10.10.10.1:443.&lt;/p&gt;
+&lt;p&gt;The IANA list is generally followed- but you cannot depend on a mapping of a port number to a specific service.  Clever sysadmins can host any service they want on a port.  This means that service listening on port 80 may not be an http server.  You can only confirm this by connecting to it with the correct client.&lt;/p&gt;
+&lt;h3 id=&#34;attaching-to-an-ssh-entry-point&#34;&gt;Attaching to an ssh entry point&lt;/h3&gt;
+&lt;p&gt;Hackers identify all opportunities to tamper with data processed by a targeted asset.  Hackers find services that are &amp;ldquo;listening&amp;rdquo; for packets.  A listening service will accept packets sent by a hacker.  If you find listening services, you&amp;rsquo;ve found a potential entry point.&lt;/p&gt;
+&lt;p&gt;Often, we can get by with  basic techniques like guessing user accounts and passwords.  Secure systems use sophisticated authentication that makes guessing or stealing a credential impossible.  For those systems, we must explore more advanced techniques. This challenge is easy enough that we won&amp;rsquo;t worry about that approach for now.&lt;/p&gt;
+&lt;p&gt;On a mobile device, you can use the &lt;a href=&#34;https://apps.applecom/us/app/prompt-2/id917437289&#34;&gt;prompt app&lt;/a&gt; to ssh into a system.  You&amp;rsquo;ll have to load it up and put the address you identified for the hotspot into the server address and specify port 80.  You&amp;rsquo;ll also have to specify a user name and a password.  This is where you should start doing some research.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What is a common username for the Raspbian operating system?&lt;/li&gt;
+&lt;li&gt;What passwords are commonly used?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;anecdotes&#34;&gt;Anecdotes&lt;/h3&gt;
+&lt;p&gt;There are two organizations that define significant standards for the Internet. These are the Internet Engineering Task Force (IETF) and the Internet Assigned Numbers Authority (IANA). The IETF publishes documents called Requests for Comments (RFCs). The RFCs are written by communities of engineers who collaborate to define the design of a protocol. They articulate how various things on the internet should work. This material is then used as a guide by software developers who implement the code that should produce various experiences. Reading an RFC can tell you how things are supposed to work. But the only way to know for sure how a certain program ACTUALLY works is to look at it’s code. Luckily, you do not need to learn to code to get started. But if your goal is to be an effective and influential security engineer, you must be able to read &amp;amp; contribute code.&lt;/p&gt;
+</description>
+    </item>
+    
+    
+    
+    <item>
+      <title>Step 4: Defacing the local web page</title>
+      <link>http://10.10.10.1/Tutorial/step-4-defacing-the-local-web-page/</link>
+      <pubDate>Mon, 02 Jan 2023 13:06:22 -0800</pubDate>
+      
+      <guid>http://10.10.10.1/Tutorial/step-4-defacing-the-local-web-page/</guid>
+      <description>&lt;p&gt;Here are the commands you can use to change directory to &lt;code&gt;/var/www/html/&lt;/code&gt;, make a backup of the &lt;code&gt;index.html&lt;/code&gt; file, and modify the web page to update the &lt;code&gt;h3&lt;/code&gt; tag:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;To change directory to &lt;code&gt;/var/www/html/&lt;/code&gt;, use the &lt;code&gt;cd&lt;/code&gt; command:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;cd /var/www/html/&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;To check the filesystem permissions of /var/www/html/index.html on a Linux system, you can use the ls command with the -l option, which displays detailed information about the file, including its permissions.&lt;/p&gt;
+&lt;p&gt;For example, to check the permissions of /var/www/html/index.html, you can use the following command:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls -l /var/www/html/index.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This will display output similar to the following:&lt;/p&gt;
+&lt;p&gt;-rw-r&amp;ndash;r&amp;ndash; 1 root root 675 Jan 1 12:34 /var/www/html/index.html&lt;/p&gt;
+&lt;p&gt;The first column of the output shows the permissions for the file. In this example, the permissions are -rw-r&amp;ndash;r&amp;ndash;, which means that the owner of the file has read and write permissions (rw-), and others have read-only permissions (r&amp;ndash;).&lt;/p&gt;
+&lt;p&gt;The second and third columns show the owner and group owner of the file, respectively. In this example, the owner is root and the group owner is also root.&lt;/p&gt;
+&lt;p&gt;The fourth column shows the size of the file in bytes. In this example, the size of /var/www/html/index.html is 675 bytes.&lt;/p&gt;
+&lt;p&gt;The fifth and sixth columns show the date and time when the file was last modified. In this example, the file was last modified on January 1st at 12:34.&lt;/p&gt;
+&lt;p&gt;The final column shows the name of the file.&lt;/p&gt;
+&lt;p&gt;To find out what account you are currently using on a Linux system, you can use the whoami command. This command prints the current user&amp;rsquo;s username to the terminal.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;whoami&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You can also use the id command to display more information about the current user, including the user&amp;rsquo;s user ID (UID) and group ID (GID). For example:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;id&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;uid=1000(jane) gid=1000(jane) groups=1000(jane),4(adm),24(cdrom),27(sudo),46(plugdev)&lt;/p&gt;
+&lt;p&gt;The uid and gid fields show the user&amp;rsquo;s UID and GID, respectively. The groups field lists the user&amp;rsquo;s supplementary groups.&lt;/p&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;To make a backup of the &lt;code&gt;index.html&lt;/code&gt; file, use the &lt;code&gt;cp&lt;/code&gt; command to copy the file to a new location:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;cp index.html index.html.bak&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;You will get a permissions error, because index.html is owned by root.&lt;/p&gt;
+&lt;p&gt;We need a way to overcome this.  Fortunately, there&amp;rsquo;s a tool that can grant users temporary root privileges.  It&amp;rsquo;s called sudo- and it only works if the account we&amp;rsquo;re logged in as is part of the sudoer group.&lt;/p&gt;
+&lt;p&gt;To check if you are a member of the sudo group on a Linux system, you can use the groups command. This command displays the groups that the current user is a member of.&lt;/p&gt;
+&lt;p&gt;For example, to check if you are a member of the sudo group, you can run the following command:
+&lt;code&gt;groups&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This will display a list of the groups that you are a member of. If the sudo group is listed, then you are a member of the sudo group and have the ability to run commands with sudo.&lt;/p&gt;
+&lt;p&gt;You can also use the id command to check if you are a member of the sudo group. For example:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;id -Gn | grep sudo&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This will display the names of the groups that you are a member of, and the grep command will search the output for the string sudo. If the sudo group is listed, then you are a member of the sudo group.&lt;/p&gt;
+&lt;p&gt;if pi is a member of the sudo group, you can use the &lt;code&gt;sudo&lt;/code&gt; command to run the command as root.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;sudo cp index.html index.html.bak&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This works because the user &amp;ldquo;pi&amp;rdquo; is part of the sudoer group&lt;/p&gt;
+&lt;p&gt;This creates a copy of &lt;code&gt;index.html&lt;/code&gt; with the name &lt;code&gt;index.html.bak&lt;/code&gt;.&lt;/p&gt;
+&lt;ol start=&#34;3&#34;&gt;
+&lt;li&gt;To modify the web page, you can use a text editor such as &lt;code&gt;nano&lt;/code&gt; or &lt;code&gt;vi&lt;/code&gt;. For example, to open the &lt;code&gt;index.html&lt;/code&gt; file in &lt;code&gt;nano&lt;/code&gt;, you can use the following command:&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;code&gt;nano index.html&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Use the arrow keys to navigate to the &lt;code&gt;h3&lt;/code&gt; tag, and update the text between the opening and closing tags to say &amp;ldquo;Elena was here!&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;To save your changes and exit &lt;code&gt;nano&lt;/code&gt;, press &lt;code&gt;Ctrl + X&lt;/code&gt;, then press &lt;code&gt;Y&lt;/code&gt; to confirm that you want to save the changes, and finally press &lt;code&gt;Enter&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;To learn how to build your own webpage, visit this page:
+&lt;a href=&#34;https://learn.shayhowe.com/html-css/building-your-first-web-page/&#34;&gt;https://learn.shayhowe.com/html-css/building-your-first-web-page/&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    
   </channel>
 </rss>

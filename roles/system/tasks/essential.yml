@@ -177,6 +177,17 @@
      - CaptivePortal
      - Hotspot
 
+   - name: Copy /etc/sysctl.conf file which disables ipv6 on the device
+     copy:
+       src: "{{ root_playbook_dir }}/etc/sysctl.conf"
+       dest: /etc/sysctl.conf
+       owner: root
+       group: root
+       mode: 0644
+     tags: 
+     - LearnLinux
+     - DisableIpV6
+
    - name: Copy 72-wlan-geo-dependent.rules script that forces the onboard interface to be wlan0.  This is done because interface names are by default dynamically allocated, which can disrupt attempts to configure correct firewall rules & routing
      copy:
        src: "{{ root_playbook_dir }}/etc/udev/rules.d/72-wlan-geo-dependent.rules"

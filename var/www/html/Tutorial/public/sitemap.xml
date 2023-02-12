@@ -2,27 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://10.10.10.1/Tutorial/challenges/</loc>
-    <lastmod>2023-02-05T20:23:14-08:00</lastmod>
-  </url><url>
-    <loc>http://10.10.10.1/Tutorial/wifibruteforceing/</loc>
-    <lastmod>2023-02-05T18:41:51-08:00</lastmod>
-  </url><url>
-    <loc>http://10.10.10.1/Tutorial/mactutorial/</loc>
-    <lastmod>2023-02-05T18:41:23-08:00</lastmod>
-  </url><url>
-    <loc>http://10.10.10.1/Tutorial/defacing/</loc>
-    <lastmod>2023-01-02T13:06:22-08:00</lastmod>
-  </url><url>
-    <loc>http://10.10.10.1/Tutorial/access/</loc>
-    <lastmod>2023-01-01T18:48:02-08:00</lastmod>
-  </url><url>
-    <loc>http://10.10.10.1/Tutorial/scanning/</loc>
-    <lastmod>2023-01-01T18:32:51-08:00</lastmod>
-  </url><url>
-    <loc>http://10.10.10.1/Tutorial/categories/</loc>
+    <loc>http://10.10.10.1/Tutorial/about/</loc>
+    <lastmod>2023-02-10T16:12:47-08:00</lastmod>
   </url><url>
     <loc>http://10.10.10.1/Tutorial/</loc>
+    <lastmod>2023-02-10T15:47:41-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/posts/</loc>
+    <lastmod>2023-02-10T15:47:41-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/tutorial-learning-how-to-get-around-on-a-mac/</loc>
+    <lastmod>2023-02-10T15:47:41-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/hotspot-hacking-challenges/</loc>
+    <lastmod>2023-02-05T20:23:14-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/step-1-how-to-brute-force-the-wifi-password/</loc>
+    <lastmod>2023-02-04T18:41:51-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/step-2-scanning-the-network/</loc>
+    <lastmod>2023-02-03T18:32:51-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/step-3-gaining-access-to-the-access-point/</loc>
+    <lastmod>2023-02-02T18:48:02-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/step-4-defacing-the-local-web-page/</loc>
+    <lastmod>2023-01-02T13:06:22-08:00</lastmod>
+  </url><url>
+    <loc>http://10.10.10.1/Tutorial/categories/</loc>
   </url><url>
     <loc>http://10.10.10.1/Tutorial/tags/</loc>
   </url>

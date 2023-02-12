@@ -1,0 +1,6 @@
+[submodule "themes/holy"]
+	path = themes/holy
+	url = https://github.com/serkodev/holy.git
+[submodule "themes/etch"]
+	path = themes/etch
+	url = https://github.com/LukasJoswiak/etch.git
