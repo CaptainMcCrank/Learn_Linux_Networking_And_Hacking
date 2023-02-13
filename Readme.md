@@ -14,7 +14,9 @@ This firmware recipe
 5. exposes a web server that can be used to show you what a server admin can see when you're browsing their site.
 
 ##Prerequisites
+If you are building this image with the Builderhotspot, you'll need two raspberry pis with at least 8 gigs of storage each.  Pi 3 and 4 have been tested.  Pi 2 has been tested and shown not to work.  Anything else is untested. 
 
+Note that just running the hotspot does not require following this build guide.  You can follow the instructions outlined [here.](https://patrickmccanna.net/firmware-for-wifi-hacking-practice-lab/)
 ##Build Overview
 
 
