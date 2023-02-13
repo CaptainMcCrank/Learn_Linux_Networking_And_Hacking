@@ -10,7 +10,7 @@ docker_host: "{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }}"
 new_password: "Passw@rd"
 wifi_password: "dragon" #This is not correctly implemented yet 1_29_23
 version:
-  Build: LEARN_LINUX_NETWORKING_AND_HACKING
-  BuildDate: "02_06_23"
-  Ver: 0.2
+  Build: hack_me_ap
+  BuildDate: "02_12_23"
+  Ver: 0.3
   Author: p@mccannabanana.com

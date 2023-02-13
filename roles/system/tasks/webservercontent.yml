@@ -20,7 +20,7 @@
      tags: 
        - LearnLinuxNetworkingHacking
 
-   - name: Copy Tutorial www files over to target
+   - name: Copy Tutorial www files over to target (hugo creates the static website content in the public directory)
      copy:
        src: "{{ root_playbook_dir }}/var/www/html/Tutorial/public/"  
        dest: /var/www/html/Tutorial
@@ -36,7 +36,7 @@
        regexp: '(?:href=\\u0027https:)' 
        replace: "href=\u0027http:"
 
-   - name: Remove fonts.googleapis.com references from the tutorial pages.
+   - name: Remove fonts.googleapis.com references from the tutorial pages. (This may no longer be needed in the etch hugo theme note date 021223)
      ansible.builtin.replace:
        path: '{{item}}'
        regexp: '(?:@import "https:\/\/fonts\.googleapis\.com\/css2\?family=Inconsolata&display=swap";:)' 
