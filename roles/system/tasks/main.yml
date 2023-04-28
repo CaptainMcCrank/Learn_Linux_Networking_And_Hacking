@@ -1,7 +1,8 @@
 ---
-- include_tasks: essential.yml
-- include_tasks: hostapd.yml
-- include_tasks: dnsmasq.yml
-- include_tasks: lighttpd.yml
-- include_tasks: webservercontent.yml
-- include_tasks: Learn_Linux_Networking_Hacking_Support.yml
+- import_tasks: essential.yml
+- import_tasks: hostapd.yml
+- import_tasks: dnsmasq.yml
+- import_tasks: lighttpd.yml
+- import_tasks: webservercontent.yml
+- import_tasks: Learn_Linux_Networking_Hacking_Support.yml
+- import_tasks: final_cleanup.yml

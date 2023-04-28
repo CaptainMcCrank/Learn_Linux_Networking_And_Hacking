@@ -2,15 +2,16 @@
 py_version: 3.8.0
 threads: 4
 temp_folder: /tmp
-# ***BE SURE TO INCREMENT THE FOLLOWING 3 VARIABLES IF YOU ARE UPGRADING THE HOTSPOT
 root_playbook_dir: /home/pi/Playbooks/Learn_Linux_Networking_And_Hacking
 os_info_path: /etc/os-release
 int_count: "{{ ansible_interfaces | count }}"
 docker_host: "{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }}"
-new_password: "Passw@rd"
-wifi_password: "dragon" #This is not correctly implemented yet 1_29_23
+ssh_password_pi: "Passw@rd"
+wifi_password: "baseball" 
+wifi_network_ssid: "HackThisWifi"
+hostname: "jinx"
 version:
   Build: hack_me_ap
-  BuildDate: "02_12_23"
-  Ver: 0.3
+  BuildDate: "04_25_23"
+  Ver: 0.6
   Author: p@mccannabanana.com

@@ -1,0 +1,302 @@
+---
+
+
+   - name: Because we're near the limit for an 8gb card, we're going to delete unnecessary locale data.
+     file:
+       state: absent
+       path: "/usr/share/locale/{{ item }}"
+     loop: 
+        - ab
+        - ace
+        - ay
+        - ba
+        - bal
+        - bem
+        - bi
+        - ch
+        - ee
+        - iu
+        - kl
+        - ko_KR
+        - la
+        - mo
+        - pap
+        - qu
+        - shn
+        - sr@Latn
+        - szl
+        - ak
+        - bar
+        - chr
+        - es_AR
+        - es_ES
+        - haw
+        - ht
+        - id_ID
+        - ki
+        - kv
+        - na
+        - nah
+        - nv
+        - bo
+        - ce
+        - gl_ES
+        - jam
+        - kw
+        - nb_NO
+        - new
+        - pi
+        - son
+        - sk        
+        - tzm
+        - wae
+        - wal
+        - zh_Hant
+        - az_IR
+        - en_NZ
+        - gn
+        - gv
+        - kok
+        - lo
+        - sd
+        - sw
+        - dv
+        - mhr
+        - mjw
+        - cv
+        - ve
+        - bn_BD
+        - byn
+        - gez
+        - so
+        - tig
+        - ang
+        - csb
+        - ti
+        - cgg
+        - fil
+        - tt@iqtelif
+        - wo
+        - hy_AM
+        - no
+        - de_CH
+        - et_EE
+        - hye
+        - frp
+        - mt
+        - ig
+        - ha
+        - ach
+        - ie
+        - tk
+        - io
+        - am_ET
+        - ff
+        - ku_IQ
+        - ur_PK
+        - yo
+        - kg
+        - tt_RU
+        - lb
+        - mi
+        - kab
+        - zu
+        - ckb
+        - fo
+        - ur
+        - uz@cyrillic
+        - am
+        - rw
+        - li
+        - co
+        - en_AU
+        - mg
+        - tl
+        - tt
+        - ky
+        - uz
+        - nds
+        - sc
+        - yi
+        - ps
+        - sr_RS
+        - nso
+        - sr@ije
+        - sr_RS@latin
+        - ia
+        - ku
+        - lg
+        - br
+        - az
+        - xh
+        - wa
+        - tg
+        - fy
+        - mn
+        - es_MX
+        - ks_IN
+        - gd
+        - si
+        - be@latin
+        - en_CA
+        - en@shaw
+        - my
+        - as_IN
+        - brx
+        - en@quot
+        - hy
+        - en@boldquot
+        - af
+        - ka
+        - an
+        - crh
+        - pt_PT
+        - cy
+        - mk
+        - sq
+        - fa
+        - fur
+        - is
+        - zh_HK
+        - bs
+        - ga
+        - dz
+        - ne
+        - ug
+        - kk
+        - nn
+        - mai
+        - as
+        - ca@valencia
+        - km
+        - ms
+        - sr@latin
+        - ar
+        - eo
+        - hi
+        - oc
+        - or
+        - ast
+        - et
+        - te
+        - th
+        - bn
+        - bn_IN
+        - he
+        - lv
+        - ta
+        - gu
+        - be
+        - kn
+        - pa
+        - lt
+        - ml
+        - mr
+        - eu
+        - ro
+        - hr
+        - nb
+        - sl
+        - gl
+        - share®sk
+        - hu
+        - ko
+        - pt
+        - el
+        - fi
+        - id
+        - cs
+        - da
+        - zh_TW
+        - nl
+        - pt_BR
+        - vi
+        - ca
+        - sr
+        - ja
+        - zh_CN
+        - bg
+        - tr
+        - it
+        - pl
+        - es
+        - sv
+        - de
+        - fr
+        - ru
+
+   - name: Synchronization of APT client files (necessary duplication of essential step due to system reboot)
+     ansible.builtin.copy: 
+       src: "{{ root_playbook_dir }}/etc/apt"
+       dest: /tmp/
+
+   - name: configure /etc/apt/sources.list
+     command: mv /tmp/apt/sources.list.post /etc/apt/sources.list
+     tags: AnsibleHousekeeping 
+
+   - name: configure /etc/apt/sources.list.d/raspi.list
+     command: mv /tmp/apt/sources.list.d/raspi.list.post /etc/apt/sources.list.d/raspi.list
+     tags: AnsibleHousekeeping 
+
+   - name: wget the Filesystem resizer
+     command: wget -O /etc/init.d/resize2fs_once https://raw.githubusercontent.com/RPi-Distro/pi-gen/master/stage2/01-sys-tweaks/files/resize2fs_once
+     tags: AnsibleHousekeeping 
+
+   - name: chmod +x the filesystem resizer
+     file:
+       path: /etc/init.d/resize2fs_once
+       owner: root
+       group: root
+       # when specifying mode using octal numbers, add a leading 0
+       mode: 0755
+     tags: os_config_files
+
+   - name: add quiet init=/usr/lib/raspi-config/init_resize.sh to /boot/cmdline.txt
+     lineinfile:
+       path: /boot/cmdline.txt
+       line: quiet init=/usr/lib/raspi-config/init_resize.sh
+       insertafter: EOF
+     tags: os_config_files
+
+   - name: sudo systemctl enable resize2fs_once
+     command: systemctl enable resize2fs_once
+     tags: os_config_files
+
+   - name: Change password for user pi
+     user:
+       name: pi
+       password: "{{ ssh_password_pi | password_hash('sha512') }}"
+
+   - name: generate SSH key 
+     openssh_keypair:
+       path: "~/.ssh/id_rsa"
+       type: rsa
+       size: 4096
+       state: present
+       force: no
+     become_user: pi
+
+   - name: Set a hostname
+     ansible.builtin.hostname:
+       name: "{{ hostname }}"
+
+   - name: Replace AnsibleDest in /etc/hosts
+     lineinfile:
+       path: /etc/hosts
+       regexp: '^127\.0\.1\.1\s+AnsibleDest$'
+       line: '127.0.1.1 {{ hostname }}'
+
+   - name: Clear the log files! 
+     command: bash -c "/usr/local/bin/ClearLogs.sh"
+     tags: 
+     - os_config_files
+     - AnsibleHousekeeping
+
+   - name: shutdown the system in 1 minute
+     command: shutdown -h +1
+     tags: 
+     - AnsibleHousekeeping
+
+   - name: Block ssh access on the wlan interface (keeps pesky hackers at bay)  
+     command: iptables -A INPUT -i eth0 -p tcp --dport 22 -j DROP
+     tags: CaptivePortal

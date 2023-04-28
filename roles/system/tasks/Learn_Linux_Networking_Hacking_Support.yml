@@ -60,12 +60,3 @@
        update_cache: true
      tags: base
 
-   - name: Change password for user pi
-     user:
-       name: pi
-       password: "{{ new_password | password_hash('sha512') }}"
-
-   - name: shutdown the system in 1 minute
-     command: shutdown -h +1
-     tags: 
-     - AnsibleHousekeeping

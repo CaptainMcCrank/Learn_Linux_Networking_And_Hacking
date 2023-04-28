@@ -1,8 +1,4 @@
 ---
-   - name: If an environment variable named "DOCKER_HOST" is set on the playbook controller, then print the value.
-     ansible.builtin.debug:
-       msg: "'{{ docker_host }}' is the DOCKER_HOST environment variable."
-     when: "'{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }} is defined'"
 
    - name: get content of remote file
      slurp:
@@ -48,14 +44,14 @@
        path: /etc/apt/sources.list
        regexp: '(?:10.6.6.1)'
        replace: "{{ docker_host }}"
-     when: "'{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }} is defined'"
+     when: "lookup('ansible.builtin.env', 'DOCKER_HOST') is defined"
 
    - name: Modify the /etc/apt/sources.list.d/raspi.list apt source if the playbook host has DOCKER_HOST environmental variable
      ansible.builtin.replace:
        path: /etc/apt/sources.list.d/raspi.list
        regexp: '(?:10.6.6.1)'
        replace: "{{ docker_host }}"
-     when: "'{{ lookup('ansible.builtin.env', 'DOCKER_HOST') }} is defined'"
+     when: "lookup('ansible.builtin.env', 'DOCKER_HOST') is defined"
 
    - name: Run the equivilent of apt-get update
      apt:
@@ -225,24 +221,6 @@
        mode: 0644
      tags: os_config_files
 
-   - name: Copy /etc/hosts file #Likely needs updates if I change interfaces
-     copy:
-       src: "{{ root_playbook_dir }}/etc/hosts"
-       dest: /etc/hosts
-       owner: root
-       group: root
-       mode: 0755
-     tags: os_config_files
-
-   - name: Copy /etc/hostname file #Likely needs updates if I change interfaces
-     copy:
-       src: "{{ root_playbook_dir }}/etc/hostname"
-       dest: /etc/hostname
-       owner: root
-       group: root
-       mode: 0755
-     tags: os_config_files
-
    - name: add Python3 alias to .bashrc
      become: true
      become_user: pi
@@ -394,12 +372,3 @@
      tags: 
      - os_config_files
      - DeviceRegistration
-
-
-
-   - name: Clear the log files! 
-     command: bash -c "/usr/local/bin/ClearLogs.sh"
-     tags: 
-     - os_config_files
-     - AnsibleHousekeeping
-
