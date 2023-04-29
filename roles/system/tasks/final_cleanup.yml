@@ -283,8 +283,8 @@
    - name: Replace AnsibleDest in /etc/hosts
      lineinfile:
        path: /etc/hosts
-       regexp: '^127\.0\.1\.1\s+AnsibleDest$'
-       line: '127.0.1.1 {{ hostname }}'
+       regexp: '^127\.0\.1\.1\s+ansibledest$'
+       line: '127.0.1.1       {{ hostname }}'
 
    - name: Clear the log files! 
      command: bash -c "/usr/local/bin/ClearLogs.sh"
@@ -297,6 +297,6 @@
      tags: 
      - AnsibleHousekeeping
 
-   - name: Block ssh access on the wlan interface (keeps pesky hackers at bay)  
+   - name: Block ssh access on the eth0 interface (keeps pesky hackers at bay)  
      command: iptables -A INPUT -i eth0 -p tcp --dport 22 -j DROP
      tags: CaptivePortal
