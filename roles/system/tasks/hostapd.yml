@@ -26,6 +26,12 @@
        regexp: '^ssid=xxx$'
        line: 'ssid={{ wifi_network_ssid }}'
 
+   - name: assign wifi key       
+     lineinfile:
+       path: /etc/hostapd/CaptivePortalStarter.conf
+       regexp: '^wpa_passphrase=ChangeMe$'
+       line: 'wpa_passphrase={{ wifi_password }}'
+
    - name: Copy /etc/default/hostapd file
      copy:
        src: "{{ root_playbook_dir }}/etc/default/hostapd"
