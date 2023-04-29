@@ -20,6 +20,12 @@
        mode: 0744
      tags: hotspot
 
+   - name: assign custom ssid       
+     lineinfile:
+       path: /etc/hostapd/CaptivePortalStarter.conf
+       regexp: '^ssid=xxx$'
+       line: 'ssid={{ wifi_network_ssid }}'
+
    - name: Copy /etc/default/hostapd file
      copy:
        src: "{{ root_playbook_dir }}/etc/default/hostapd"
